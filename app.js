@@ -3,14 +3,16 @@ window.__cq=window.__cq||{};
 import { PUZZLES } from './puzzles.js';
 import { pieceSVG } from './pieces.js';
 import { analyze, warm } from './engine.js';
+import { OPEN } from './openings.js';
+import { PRINCIPLES } from './openings.src.mjs';
 
 const $=s=>document.querySelector(s);const app=$('#app');
 const FILES='abcdefgh';const NAMES={p:'pawn',n:'knight',b:'bishop',r:'rook',q:'queen',k:'king'};const VAL={p:1,n:3,b:3,r:5,q:9,k:100};
 const SQS=[];for(let r=8;r>=1;r--)for(const f of FILES)SQS.push(f+r);
 // ---------- storage ----------
 const KEY='chessquest_v1';
-const S=Object.assign({stars:{},lessons:{},badges:{},wins:{},games:0,daily:{},path:{},settings:{read:false,sound:true,threats:true,coach:true,unsafe:false}},JSON.parse(localStorage.getItem(KEY)||'{}'));
-S.settings=Object.assign({read:false,sound:true,threats:true,coach:true,unsafe:false},S.settings);
+const S=Object.assign({stars:{},lessons:{},badges:{},wins:{},games:0,daily:{},path:{},settings:{read:false,sound:true,threats:true,coach:true,unsafe:false,coords:false},openings:{},quiz:{}},JSON.parse(localStorage.getItem(KEY)||'{}'));
+S.settings=Object.assign({read:false,sound:true,threats:true,coach:true,unsafe:false,coords:false},S.settings);S.openings=S.openings||{};S.quiz=S.quiz||{};
 const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
 // ---------- voice & sound ----------
 let voice=null;function pickVoice(){const vs=speechSynthesis.getVoices();voice=vs.find(v=>v.lang==='en-US'&&/Samantha|Allison|Ava|Google US/i.test(v.name))||vs.find(v=>v.lang==='en-US')||vs.find(v=>/^en-US/i.test(v.lang))||null}
@@ -20,7 +22,7 @@ let actx=null;function beep(kind){if(!S.settings.sound)return;try{actx=actx||new
 function confetti(){const c=$('#confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,v:2+Math.random()*4,s:6+Math.random()*8,a:Math.random()*6,c:`hsl(${Math.random()*360},90%,60%)`}));let n=0;(function f(){x.clearRect(0,0,c.width,c.height);for(const p of P){p.y+=p.v;p.a+=.1;x.fillStyle=p.c;x.save();x.translate(p.x+Math.sin(p.a)*8,p.y);x.rotate(p.a);x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()}if(++n<170)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
 function badge(id){if(S.badges[id])return;S.badges[id]=Date.now();save();const b=BADGES.find(b=>b.id===id);if(b)toast(`🏅 New badge: ${b.e} ${b.name}!`)}
 function toast(t){const d=document.createElement('div');d.className='card';d.style.cssText='position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:40;font-weight:bold;max-width:90vw';d.textContent=t;document.body.appendChild(d);speak(t);setTimeout(()=>d.remove(),2800)}
-const BADGES=[{id:'firstLesson',e:'📘',name:'First Lesson'},{id:'allLessons',e:'🎓',name:'Piece Master'},{id:'firstPuzzle',e:'🧩',name:'First Puzzle'},{id:'five',e:'🖐️',name:'5 Puzzles'},{id:'mate1',e:'⚡',name:'Mate-in-1 Champ'},{id:'famous',e:'🏛️',name:'Chess History Hero'},{id:'allPuzzles',e:'👑',name:'Puzzle King'},{id:'daily',e:'📅',name:'Daily Solver'},{id:'easy',e:'🐣',name:'Beat Easy Bot'},{id:'medium',e:'🦊',name:'Beat Medium Bot'},{id:'hard',e:'🦁',name:'Beat Hard Bot'},{id:'path',e:'🗺️',name:'Finished the Quest Path'}];
+const BADGES=[{id:'firstLesson',e:'📘',name:'First Lesson'},{id:'allLessons',e:'🎓',name:'Piece Master'},{id:'firstPuzzle',e:'🧩',name:'First Puzzle'},{id:'five',e:'🖐️',name:'5 Puzzles'},{id:'mate1',e:'⚡',name:'Mate-in-1 Champ'},{id:'famous',e:'🏛️',name:'Chess History Hero'},{id:'allPuzzles',e:'👑',name:'Puzzle King'},{id:'daily',e:'📅',name:'Daily Solver'},{id:'easy',e:'🐣',name:'Beat Easy Bot'},{id:'medium',e:'🦊',name:'Beat Medium Bot'},{id:'hard',e:'🦁',name:'Beat Hard Bot'},{id:'path',e:'🗺️',name:'Finished the Quest Path'},{id:'squares',e:'🔍',name:'Square Spotter'},{id:'notation',e:'✍️',name:'Notation Ninja'},{id:'explorer',e:'🧭',name:'Opening Explorer'}];
 // ---------- helpers ----------
 const opp=c=>c==='w'?'b':'w';
 const colorName=c=>c==='w'?'White':'Black';
@@ -37,7 +39,7 @@ class Board{
     for(const sq of order){const fi=FILES.indexOf(sq[0]),ri=+sq[1];const light=(fi+ri)%2===1;const pc=ch.get(sq);
       const cls=['sq',light?'l':'d'];if(o.sel===sq)cls.push('sel');if(o.last&&o.last.includes(sq))cls.push('last');
       if(o.hl&&o.hl[sq])cls.push(...o.hl[sq].split(' '));if(o.marks&&o.marks[sq])cls.push(...o.marks[sq].split(' '));
-      h+=`<div class="${cls.join(' ')}" data-sq="${sq}">${pc?pieceSVG(pc.type,pc.color):''}${o.stars&&o.stars.includes(sq)?'<span class="star">⭐</span>':''}${(this.orient==='w'?sq[1]==='1':sq[1]==='8')?`<span class="coord">${sq[0]}</span>`:''}</div>`}
+      h+=`<div class="${cls.join(' ')}" data-sq="${sq}">${pc?pieceSVG(pc.type,pc.color):''}${o.stars&&o.stars.includes(sq)?'<span class="star">⭐</span>':''}${S.settings.coords?`<span class="sqname">${sq}</span>`:''}${(this.orient==='w'?sq[1]==='1':sq[1]==='8')?`<span class="coord">${sq[0]}</span>`:''}${(this.orient==='w'?sq[0]==='a':sq[0]==='h')?`<span class="coordr">${sq[1]}</span>`:''}</div>`}
     this.b.innerHTML=h;
     let a='<defs><marker id="ah" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#7b2ff7"/></marker></defs>';
     for(const [f,t] of (o.arrows||[])){const [x1,y1]=this.xy(f),[x2,y2]=this.xy(t);const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;a+=`<line x1="${x1}" y1="${y1}" x2="${x2-dx/L*.35}" y2="${y2-dy/L*.35}" stroke="#7b2ff7" stroke-width=".16" stroke-linecap="round" opacity=".85" marker-end="url(#ah)"/>`}
@@ -97,6 +99,8 @@ SCREENS.home=()=>{const dp=dailyPuzzle();app.innerHTML=`<h1>♞ Chess Quest</h1>
 <div class="tile" id="dailyT"><span class="e">📅</span><b>Daily Puzzle</b><small>${S.daily[today()]?'Solved today ✅':esc(dp.title)}</small></div>
 <div class="tile" data-go="play"><span class="e">🤖</span><b>Play the Computer</b><small>Easy, Medium or Hard</small></div>
 <div class="tile" data-go="coach"><span class="e">🦉</span><b>Move Coach</b><small>Which moves are good?</small></div>
+<div class="tile" data-go="notation"><span class="e">🔤</span><b>Board & Notation</b><small>Square names, e4, Nf3, O-O</small></div>
+<div class="tile" data-go="openings"><span class="e">📖</span><b>Openings</b><small>Italian, Sicilian & more</small></div>
 <div class="tile" data-go="badges"><span class="e">🏅</span><b>Badges</b><small>Your trophies</small></div>
 <div class="tile" data-go="parents"><span class="e">👪</span><b>Grown-ups</b><small>Settings & teaching tips</small></div>
 </div><p style="text-align:center;font-size:13px;opacity:.7">Chess Quest · <a href="CREDITS.md">credits & licenses</a></p>`;
@@ -150,9 +154,9 @@ SCREENS.puzzle=(id,isDaily)=>{const P=PUZZLES.find(p=>p.id===id);const ch=new Ch
   app.innerHTML=`<div class="top">${back('puzzles')}<h2>${esc(P.title)}</h2>${speakBtn(P.story)}</div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side">
   <div class="card"><b>${esc(P.players)}</b>${P.year?' · '+P.year:''}<div class="msg">${esc(P.story)}</div>${P.source?`<small><a href="${P.source}" target="_blank" rel="noopener">About this game</a></small>`:''}</div>
   <div class="card msg" id="st">${colorName(me)} to move. ${P.cat==='mate1'?'Checkmate in 1 move!':P.cat==='mate2'?'Checkmate in 2 moves!':P.cat==='material'?'Win something big!':`Find the move ${P.players.split(' vs ')[me==='w'?0:1]||''} played!`}</div>
-  <div class="row"><button class="orange" id="hint">💡 Hint</button><button class="alt" id="retry">↺ Restart</button></div><div id="why"></div></div></div>`;
-  const B=new Board($('#bw'),me);speak(P.story);
-  const draw=()=>{const hl=sel?legalHL(ch,sel):{};const marks={};if(hintSq)marks[hintSq]='hintp';B.render(ch,{sel,hl,marks,last,arrows:hintArrow?[hintArrow]:[]})};
+  <div class="row"><button class="orange" id="hint">💡 Hint</button><button class="alt" id="retry">↺ Restart</button></div><div id="why"></div><div id="sheet"></div></div></div>`;
+  const B=new Board($('#bw'),me);speak(P.story);const startFen=P.fen;
+  const draw=()=>{scoresheet($('#sheet'),ch,{White:P.players.split(' vs ')[0]||'White',Black:P.players.split(' vs ')[1]||'Black',Event:P.title+(P.year?' ('+P.year+')':'')},startFen);const hl=sel?legalHL(ch,sel):{};const marks={};if(hintSq)marks[hintSq]='hintp';B.render(ch,{sel,hl,marks,last,arrows:hintArrow?[hintArrow]:[]})};
   const st=t=>{$('#st').textContent=t;speak(t)};
   $('#retry').onclick=()=>go('puzzle',id,isDaily);
   $('#hint').onclick=()=>{if(solved)return;hints++;const u=P.uci[ply];if(hints===1)st('Hint: '+(P.hint||'Look at all the checks first!'));else if(hints===2){hintSq=u.slice(0,2);st('Hint: try moving this piece.');draw()}else{hintSq=u.slice(0,2);hintArrow=[u.slice(0,2),u.slice(2,4)];st('Hint: move it here!');draw()}};
@@ -191,10 +195,10 @@ SCREENS.game=(lvKey,me,coachOnly)=>{const ch=new Chess();window.__cq.game=ch;let
   <label class="toggle"><input type="checkbox" id="tc" ${S.settings.coach?'checked':''}> 🦉 Coach colors (good / okay / risky)</label>
   <label class="toggle"><input type="checkbox" id="tt" ${S.settings.threats?'checked':''}> ⚠️ Show threats</label>
   <div class="legend"><span style="background:#2fb36b">good</span><span style="background:#f5b400">okay</span><span style="background:#ff4d6d">risky</span></div>
-  <div class="card coachlist" id="cl" style="display:none"></div></div></div>`;
+  <div class="card coachlist" id="cl" style="display:none"></div><div id="sheet"></div></div></div>`;
   const B=new Board($('#bw'),me);
-  const st=t=>{$('#st').innerHTML=t};
-  const draw=()=>{let hl={};if(sel){hl=legalHL(ch,sel);if(coach)for(const c of coach)hl[c.m.to]=(hl[c.m.to]||'hl')+' '+c.cls}
+  const st=t=>{$('#st').innerHTML=t};const sheet=()=>scoresheet($('#sheet'),ch,{White:me==='w'?'Me':'Computer ('+((LEVELS[lvKey]||{n:''}).n.split(' ')[0])+')',Black:me==='b'?'Me':'Computer ('+((LEVELS[lvKey]||{n:''}).n.split(' ')[0])+')'});
+  const draw=()=>{sheet();let hl={};if(sel){hl=legalHL(ch,sel);if(coach)for(const c of coach)hl[c.m.to]=(hl[c.m.to]||'hl')+' '+c.cls}
     B.render(ch,{sel,hl,last,marks:$('#tt').checked?threatMarks:{},arrows:hintA?[hintA]:[]})};
   const showThreats=(lastMove)=>{const t=threats(ch,me,lastMove);threatMarks=t.marks;const el=$('#th');if($('#tt').checked&&t.msgs.length){el.style.display='';el.innerHTML='⚠️ '+t.msgs.map(esc).join('<br>⚠️ ');speak(t.msgs.join(' '))}else el.style.display='none'};
   $('#tc').onchange=e=>{S.settings.coach=e.target.checked;save();coach=null;$('#cl').style.display='none';draw()};
@@ -244,6 +248,121 @@ SCREENS.parents=()=>{const T=(k,l)=>`<label class="toggle"><input type="checkbox
   <div class="card"><h2>Progress</h2><p>Lessons: ${Object.keys(S.lessons).length}/${LESSONS.length} · Puzzles solved: ${Object.keys(S.stars).length}/${PUZZLES.length} · Games played: ${S.games}</p><button class="orange" id="rs">Reset all progress</button></div>`;
   app.querySelectorAll('[data-s]').forEach(i=>i.onchange=()=>{S.settings[i.dataset.s]=i.checked;save();if(i.dataset.s==='read'&&i.checked)speak('Read to me is on.',true)});
   $('#rs').onclick=()=>{if(confirm('Erase all stars, badges and progress?')){localStorage.removeItem(KEY);location.reload()}}};
+// ---------- scoresheet ----------
+function moveRows(ch,startFen){const h=ch.history();const sf=startFen||new Chess().fen();const p=sf.split(' ');let num=+p[5]||1,turn=p[1];const rows=[];let i=0;
+  if(turn==='b'&&h.length){rows.push([num,'...',h[0]]);i=1;num++}
+  for(;i<h.length;i+=2){rows.push([num,h[i],h[i+1]||'']);num++}return rows}
+function pgnText(ch,headers,startFen){const rows=moveRows(ch,startFen);const res=ch.isCheckmate()?(ch.turn()==='w'?'0-1':'1-0'):ch.isDraw()?'1/2-1/2':'*';
+  const d=new Date();const H={Event:'Chess Quest game',Site:'Chess Quest',Date:`${d.getFullYear()}.${String(d.getMonth()+1).padStart(2,'0')}.${String(d.getDate()).padStart(2,'0')}`,White:'White',Black:'Black',...headers,Result:res};
+  if(startFen&&startFen!==new Chess().fen()){H.SetUp='1';H.FEN=startFen}
+  const mv=rows.map(r=>r[1]==='...'?`${r[0]}... ${r[2]}`:`${r[0]}. ${r[1]}${r[2]?' '+r[2]:''}`).join(' ');
+  return Object.entries(H).map(([k,v])=>`[${k} "${String(v).replace(/"/g,"'")}"]`).join('\n')+'\n\n'+(mv?mv+' ':'')+res+'\n'}
+function scoresheet(el,ch,headers,startFen){if(!el)return;const rows=moveRows(ch,startFen);
+  el.innerHTML=`<div class="card"><div class="top"><h2 style="font-size:19px">📝 Scoresheet</h2><button class="alt" data-cp>📋 Copy PGN</button><button class="alt" data-pr>🖨️ Print</button></div>
+  <div class="sheet">${rows.length?rows.map(r=>`<div><b>${r[0]}.</b> <span>${r[1]}</span> <span>${r[2]}</span></div>`).join(''):'<small>Moves will appear here.</small>'}</div></div>`;
+  const pg=pgnText(ch,headers,startFen);
+  el.querySelector('[data-cp]').onclick=async()=>{try{await navigator.clipboard.writeText(pg);toast('PGN copied! 📋')}catch(e){prompt('Copy this PGN:',pg)}};
+  el.querySelector('[data-pr]').onclick=()=>{const w=window.open('','_blank');if(!w)return toast('Please allow pop-ups to print.');const R=moveRows(ch,startFen);const lines=[];for(let i=0;i<Math.max(40,R.length);i++){const r=R[i]||[i+1+(R[0]?R[0][0]-1:0),'',''];lines.push(`<tr><td>${r[0]}</td><td>${r[1]}</td><td>${r[2]}</td></tr>`)}
+    w.document.write(`<!doctype html><html lang="en-US"><head><meta charset="utf-8"><title>Chess Quest Scoresheet</title><style>body{font-family:sans-serif;margin:24px}table{border-collapse:collapse;width:100%;max-width:520px}td,th{border:1px solid #888;padding:6px 8px;height:22px}td:first-child{width:40px;text-align:right}@media print{button{display:none}}</style></head><body><h1>♞ Chess Quest Scoresheet</h1><p><b>White:</b> ${esc(headers.White||'')} &nbsp; <b>Black:</b> ${esc(headers.Black||'')} &nbsp; <b>Date:</b> ${new Date().toLocaleDateString('en-US')}</p>${headers.Event?`<p>${esc(headers.Event)}</p>`:''}<table><tr><th>#</th><th>White</th><th>Black</th></tr>${lines.join('')}</table><p><button onclick="print()">🖨️ Print</button></p></body></html>`);w.document.close()}}
+// ---------- Board & Notation ----------
+const sqColor=sq=>(FILES.indexOf(sq[0])+(+sq[1]))%2===1?'light':'dark';
+const rndSq=()=>FILES[Math.floor(Math.random()*8)]+(1+Math.floor(Math.random()*8));
+SCREENS.notation=()=>{const q=S.quiz;const st=k=>q[k]?'⭐'.repeat(q[k]):'';
+  app.innerHTML=`<div class="top">${back()}<h2>🔤 Board & Notation</h2></div><div class="tiles">
+  <div class="tile" data-n="coords"><span class="e">🗺️</span><b>Square Names</b><small>Files a–h, ranks 1–8</small></div>
+  <div class="tile" data-n="findw"><span class="e">🔍</span><b>Find the Square</b><small>White's view ${st('find_w')}</small></div>
+  <div class="tile" data-n="findb"><span class="e">🔎</span><b>Find the Square</b><small>Black's view ${st('find_b')}</small></div>
+  <div class="tile" data-n="color"><span class="e">🌗</span><b>Light or Dark?</b><small>"Light on right" ${st('color')}</small></div>
+  <div class="tile" data-n="guide"><span class="e">✍️</span><b>How to Write Moves</b><small>K Q R B N, x, +, #, O-O</small></div>
+  <div class="tile" data-n="write"><span class="e">📝</span><b>Write This Move</b><small>Quiz ${st('write')}</small></div>
+  <div class="tile" data-n="playq"><span class="e">🎯</span><b>Play This Move</b><small>"Play Nf3" ${st('playq')}</small></div></div>`;
+  const R={coords:()=>go('coords'),findw:()=>go('findsq','w'),findb:()=>go('findsq','b'),color:()=>go('lightdark'),guide:()=>go('guide'),write:()=>go('nquiz','write'),playq:()=>go('nquiz','play')};
+  app.querySelectorAll('[data-n]').forEach(t=>t.onclick=()=>R[t.dataset.n]())};
+SCREENS.coords=(orient='w')=>{const ch=({get:()=>null});const txt='Every square has a name. The columns going up and down are called files, and they are lettered a to h. The rows going across are called ranks, numbered 1 to 8. Say the file first, then the rank: e4 means file e, rank 4. White starts on ranks 1 and 2. Black starts on ranks 7 and 8.';
+  app.innerHTML=`<div class="top">${back('notation')}<h2>🗺️ Square Names</h2>${speakBtn(txt)}</div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side"><div class="card msg">${esc(txt)}</div><div class="card msg" id="st">Tap any square to hear its name!</div>
+  <label class="toggle"><input type="checkbox" id="co" ${S.settings.coords?'checked':''}> Show square names on every board</label><div class="row"><button class="alt" id="fl">🔄 Flip board (Black's view)</button></div></div></div>`;
+  const B=new Board($('#bw'),orient);B.render(ch);
+  $('#co').onchange=e=>{S.settings.coords=e.target.checked;save();B.render(ch)};$('#fl').onclick=()=>go('coords',orient==='w'?'b':'w');
+  B.onTap=sq=>{const marks={};for(const s of SQS){if(s[0]===sq[0])marks[s]='mark';if(s[1]===sq[1])marks[s]=marks[s]?'sel':'hintp'}B.render(ch,{marks});const t=`${sq}: file ${sq[0]} (purple column), rank ${sq[1]} (blue row). It is a ${sqColor(sq)} square.`;$('#st').textContent=t;speak(t)}};
+SCREENS.findsq=(orient)=>{const ch=({get:()=>null});const N=10;let n=0,miss=0,t0=0,target=null,done=false,timer=null;screenCleanup=()=>clearInterval(timer);
+  app.innerHTML=`<div class="top">${back('notation')}<h2>🔍 Find the Square (${orient==='w'?"White's":"Black's"} view)</h2></div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side"><div class="card" style="text-align:center"><div style="font-size:16px">Tap this square:</div><div id="tg" style="font-size:64px;font-weight:bold;color:#4b2fb0">?</div><div class="msg" id="st">Tap Start!</div><div class="msg">⏱️ <span id="tm">0.0</span>s · ✅ <span id="ct">0</span>/${N} · ❌ <span id="ms">0</span></div></div><div class="row"><button class="green" id="go">▶ Start</button></div><small>Tip: stars come from speed. 3⭐ under 25 seconds, 2⭐ under 45 seconds.</small></div></div>`;
+  const B=new Board($('#bw'),orient);const saveC=S.settings.coords;B.render(ch);
+  const next=()=>{let s;do{s=rndSq()}while(s===target);target=s;$('#tg').textContent=s;speak(s)};
+  $('#go').onclick=()=>{n=0;miss=0;done=false;t0=Date.now();$('#ct').textContent=0;$('#ms').textContent=0;$('#st').textContent='Go!';clearInterval(timer);timer=setInterval(()=>$('#tm').textContent=((Date.now()-t0)/1000).toFixed(1),100);next()};
+  B.onTap=sq=>{if(!target||done)return;if(sq===target){n++;beep('star');$('#ct').textContent=n;B.render(ch,{marks:{[sq]:'hintp'}});if(n>=N){done=true;clearInterval(timer);const sec=(Date.now()-t0)/1000+miss*2;const stars=sec<25?3:sec<45?2:1;const k='find_'+orient;S.quiz[k]=Math.max(S.quiz[k]||0,stars);save();if(S.quiz.find_w&&S.quiz.find_b)badge('squares');confetti();beep('win');const m=`Done in ${((Date.now()-t0)/1000).toFixed(1)} seconds! ${'⭐'.repeat(stars)}`;$('#st').textContent=m+(miss?` (${miss} misses add 2 seconds each)`:'');speak(m);$('#tg').textContent='🎉';return}next()}
+    else{miss++;$('#ms').textContent=miss;beep('bad');B.render(ch,{marks:{[sq]:'danger'}});$('#st').textContent=`That was ${sq}. Find ${target}!`}}};
+SCREENS.lightdark=()=>{const ch=({get:()=>null});const N=8;let n=0,right=0,target=null;const txt='The bottom right corner square is always light. Remember: light on right! So h1 and a8 are light squares, and a1 and h8 are dark. Also: the white queen starts on a light square, d1, and the black queen starts on a dark square, d8. Queen on her own color!';
+  app.innerHTML=`<div class="top">${back('notation')}<h2>🌗 Light or Dark?</h2>${speakBtn(txt)}</div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side"><div class="card msg">${esc(txt)}</div><div class="card" style="text-align:center"><div style="font-size:16px">Without looking at the board, is this square light or dark?</div><div id="tg" style="font-size:56px;font-weight:bold;color:#4b2fb0">?</div><div class="row" style="justify-content:center"><button class="alt" data-c="light" style="background:#fbe8c6;color:#2b2550">☀️ Light</button><button data-c="dark" style="background:#8a5a32">🌙 Dark</button></div><div class="msg" id="st"></div></div><label class="toggle"><input type="checkbox" id="hide" checked> Hide the board colors (harder!)</label></div></div>`;
+  const B=new Board($('#bw'));const paint=()=>{B.render(ch,{marks:target?{[target]:'hintp'}:{}});$('#bw').classList.toggle('blank',$('#hide').checked)};$('#hide').onchange=paint;
+  const next=()=>{target=rndSq();$('#tg').textContent=target;paint()};next();
+  app.querySelectorAll('[data-c]').forEach(b=>b.onclick=()=>{if(n>=N)return;n++;const c=sqColor(target);const ok=b.dataset.c===c;if(ok){right++;beep('good')}else beep('bad');
+    let m=`${ok?'Yes!':'Not quite.'} ${target} is a ${c} square.`;if(n>=N){const stars=right>=8?3:right>=6?2:1;S.quiz.color=Math.max(S.quiz.color||0,stars);save();m+=` You got ${right} of ${N}! ${'⭐'.repeat(stars)}`;if(stars===3)confetti();$('#st').textContent=m;speak(m);$('#bw').classList.remove('blank');B.render(ch,{marks:{[target]:'hintp'}});return}$('#st').textContent=m;speak(m);next()})};
+const GUIDE=[['K Q R B N','Each piece has a capital letter: K = king, Q = queen, R = rook, B = bishop, N = knight (K is already taken by the king!).','Nf3 = a knight moves to f3'],['Pawns have no letter','For a pawn, just write the square it moves to.','e4 = a pawn moves to e4'],['x means capture','Put an x before the square. A pawn capture starts with the file the pawn came from.','Bxe5 = bishop takes on e5 · exd5 = the e-pawn takes on d5'],['+ means check','Add + when the move puts the king in check.','Qh5+'],['# means checkmate','Add # when the move is checkmate.','Qxf7#'],['O-O and O-O-O','Castling short (king side) is O-O. Castling long (queen side) is O-O-O.','O-O'],['=Q means promotion','When a pawn reaches the last rank, write the new piece after an = sign.','e8=Q'],['Move numbers and ...','A move number covers one White move and one Black move. When we start with a Black move, write the number and three dots.','1. e4 e5 2. Nf3 Nc6 · 5... Nxd5'],['Two pieces can go there?','Add the file (or rank) the piece came from so everyone knows which one moved.','Nbd7 · R1e2']];
+SCREENS.guide=()=>{app.innerHTML=`<div class="top">${back('notation')}<h2>✍️ How to Write Moves</h2></div><div class="card msg">This is called <b>algebraic notation</b>. Chess players use it to write down games, so they can replay them later, just like the famous games in Puzzles!</div>${GUIDE.map(([h,t,ex])=>`<div class="card"><div class="top"><h2 style="font-size:20px">${esc(h)}</h2>${speakBtn(h+'. '+t)}</div><div class="msg">${esc(t)}</div><div class="msg" style="font-family:monospace;font-size:20px;color:#4b2fb0;margin-top:4px">${esc(ex)}</div></div>`).join('')}<div class="row"><button class="green" data-go="notation">Try the quizzes ➡</button></div>`};
+// quiz positions: famous game & opening move sequences, plus special-move positions
+function quizPool(){const seqs=[];for(const p of PUZZLES)if(p.moves&&p.moves.length>6&&!p.fen.includes('1NBQKBNR'))seqs.push({moves:[...p.moves,...p.solution]});
+  for(const o of [...OPEN.openings,...OPEN.traps])seqs.push({moves:o.moves});return seqs}
+const SPECIAL=['7k/3P4/8/8/8/8/8/K7 w - - 0 1','r3k2r/pppq1ppp/2npbn2/4p3/4P3/2NPBN2/PPPQ1PPP/R3K2R w KQkq - 0 8','6k1/5ppp/8/8/8/8/5PPP/R5K1 w - - 0 1','r1bqkbnr/pppp1ppp/2n5/4p2Q/2B1P3/8/PPPP1PPP/RNB1K1NR w KQkq - 4 4'];
+function pickQuizMove(){if(Math.random()<.3){const g=new Chess(SPECIAL[Math.floor(Math.random()*SPECIAL.length)]);const ms=g.moves({verbose:true});const pri=ms.filter(m=>m.promotion==='q'||m.flags.includes('k')||m.flags.includes('q')||m.san.includes('#'));const m=(pri.length?pri:ms)[Math.floor(Math.random()*(pri.length||ms.length))];return{fen:g.fen(),m}}
+  const pool=quizPool();const s=pool[Math.floor(Math.random()*pool.length)];const g=new Chess();const k=Math.floor(Math.random()*(s.moves.length));for(let i=0;i<k;i++)g.move(s.moves[i]);const ms=g.moves({verbose:true});
+  const game=ms.find(m=>m.san===s.moves[k]);const fun=ms.filter(m=>m.captured||m.san.includes('+'));const m=Math.random()<.5&&game?game:(fun.length&&Math.random()<.6?fun[Math.floor(Math.random()*fun.length)]:ms[Math.floor(Math.random()*ms.length)]);return{fen:g.fen(),m}}
+function distractors(fen,m){const out=new Set();const L='KQRBN';const san=m.san;const g=new Chess(fen);const others=g.moves().filter(x=>x!==san);
+  if(san.includes('x'))out.add(san.replace('x',''));else if(!san.startsWith('O'))out.add(san.replace(/([a-h][1-8])/, 'x$1'));
+  if(/[+#]$/.test(san))out.add(san.replace(/[+#]$/,''));else out.add(san+'+');
+  if(L.includes(san[0])){out.add((L.replace(san[0],'')[Math.floor(Math.random()*4)])+san.slice(1));if(!san.includes('x'))out.add(san.slice(1))}
+  else if(!san.startsWith('O'))out.add('P'+san);
+  if(san==='O-O')out.add('O-O-O');if(san==='O-O-O')out.add('O-O');if(san.includes('=Q'))out.add(san.replace('=Q',''));
+  const swap=m.to[0]+String(9-+m.to[1]);out.add(san.replace(m.to,swap));
+  while(out.size<6&&others.length)out.add(others.splice(Math.floor(Math.random()*others.length),1)[0]);
+  out.delete(san);return [...out].sort(()=>Math.random()-.5).slice(0,3)}
+const prefix=(fen)=>{const p=fen.split(' ');return p[1]==='w'?p[5]+'. ':p[5]+'... '};
+SCREENS.nquiz=(mode)=>{const N=8;let n=0,right=0,cur=null,tries=0,sel=null,ch=null;
+  app.innerHTML=`<div class="top">${back('notation')}<h2>${mode==='write'?'📝 Write This Move':'🎯 Play This Move'}</h2></div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side"><div class="card msg" id="q"></div><div class="row" id="opts"></div><div class="card msg" id="st"></div><div class="msg">Question <span id="qn">1</span> of ${N} · ✅ <span id="rt">0</span></div></div></div>`;
+  const B=new Board($('#bw'));
+  const next=()=>{if(n>=N){const qk=mode==='play'?'playq':'write';const stars=right>=N?3:right>=N-2?2:1;S.quiz[qk]=Math.max(S.quiz[qk]||0,stars);save();if(S.quiz.write>=2&&S.quiz.playq>=2)badge('notation');const m=`You got ${right} of ${N}! ${'⭐'.repeat(stars)}`;$('#st').textContent=m;speak(m);if(stars===3)confetti();$('#opts').innerHTML='<button class="green" id="again">Play again</button>';$('#again').onclick=()=>go('nquiz',mode);return}
+    cur=pickQuizMove();window.__cq.quiz=cur;ch=new Chess(cur.fen);tries=0;sel=null;$('#qn').textContent=n+1;const side=ch.turn()==='w'?'White':'Black';
+    if(mode==='write'){B.orient='w';B.render(ch,{arrows:[[cur.m.from,cur.m.to]],marks:{[cur.m.from]:'hintp',[cur.m.to]:'hintp'}});const q=`${side} makes the move shown by the arrow. How do we write it?`;$('#q').textContent=q;speak(q);
+      const opts=[cur.m.san,...distractors(cur.fen,cur.m)].sort(()=>Math.random()-.5);$('#opts').innerHTML=opts.map(o=>`<button class="alt" data-o="${esc(o)}" style="font-family:monospace;font-size:20px">${esc(prefix(cur.fen)+o)}</button>`).join('');
+      $('#opts').querySelectorAll('[data-o]').forEach(b=>b.onclick=()=>answer(b.dataset.o===cur.m.san,b))}
+    else{B.orient=ch.turn();B.render(ch);const q=`${side} to move. Play ${prefix(cur.fen)}${cur.m.san}`;$('#q').innerHTML=`${side} to move. Play <b style="font-family:monospace;font-size:24px;color:#4b2fb0">${esc(prefix(cur.fen)+cur.m.san)}</b>`;speak(q.replace(/\.\.\./,' dot dot dot '));$('#opts').innerHTML='<button class="orange" id="hq">💡 Hint</button>';$('#hq').onclick=()=>{B.render(ch,{marks:{[cur.m.from]:'hintp'}});tries++}}};
+  function explain(){const m=cur.m;const parts=[];parts.push(m.piece==='p'?'a pawn move, so no letter':`${NAMES[m.piece]} = ${m.piece.toUpperCase()}`);if(m.captured)parts.push('x for the capture');if(m.flags.includes('k'))parts.push('O-O is castling king side');if(m.flags.includes('q'))parts.push('O-O-O is castling queen side');if(m.promotion)parts.push('=Q for the new queen');if(m.san.includes('#'))parts.push('# for checkmate');else if(m.san.includes('+'))parts.push('+ for check');return `${prefix(cur.fen)}${m.san}: ${parts.join(', ')}.`}
+  function answer(ok,btn){if(ok){if(tries===0)right++;beep('good');n++;$('#rt').textContent=right;const t='✅ '+explain();$('#st').textContent=t;speak(t);setTimeout(next,1600)}else{tries++;beep('bad');if(btn){btn.disabled=true}$('#st').textContent='Not quite, try again!'}}
+  B.onTap=async sq=>{if(mode!=='play'||!ch)return;const pc=ch.get(sq);if(sel&&legalHL(ch,sel)[sq]){const cand=ch.moves({square:sel,verbose:true}).filter(m=>m.to===sq);let m=cand[0];if(cand.length>1&&cand[0].promotion){const t=await askPromotion(ch.turn());m=cand.find(c=>c.promotion===t)}sel=null;
+      if(m.san===cur.m.san){ch.move(m.san);B.render(ch,{last:[m.from,m.to]});answer(true)}else{B.render(ch);$('#st').textContent=`That would be ${m.san}. We need ${cur.m.san}. Try again!`;tries++;beep('bad')}return}
+    sel=pc&&pc.color===ch.turn()?sq:null;B.render(ch,{sel,hl:sel?legalHL(ch,sel):{}})};
+  next()};
+// ---------- Openings ----------
+SCREENS.openings=()=>{const done=Object.keys(S.openings).length;
+  app.innerHTML=`<div class="top">${back()}<h2>📖 Openings</h2></div><div class="card msg">🧭 Practice every opening to earn the <b>Opening Explorer</b> badge! (${OPEN.openings.filter(o=>S.openings[o.id]).length}/${OPEN.openings.length})</div>
+  <div class="card"><h2>⭐ Opening Rules of Thumb</h2>${PRINCIPLES.map(([e,h,t])=>`<div class="msg" style="margin:6px 0">${e} <b>${esc(h)}</b>: ${esc(t)}</div>`).join('')}${speakBtn(PRINCIPLES.map(p=>p[1]+'. '+p[2]).join(' '))}</div>
+  <div class="card"><h2>Popular openings</h2>${OPEN.openings.map(o=>`<div class="pz" data-o="${o.id}"><div><b>${o.e} ${esc(o.name)}</b><br><small>ECO ${o.eco} · played as ${o.side==='w'?'White':'Black'}</small></div><span class="stars">${S.openings[o.id]?'✅':''}</span></div>`).join('')}</div>
+  <div class="card"><h2>🪤 Traps to know</h2>${OPEN.traps.map(o=>`<div class="pz" data-o="${o.id}"><div><b>${o.e} ${esc(o.name)}</b><br><small>ECO ${o.eco}</small></div><span class="stars">${S.openings[o.id]?'✅':''}</span></div>`).join('')}</div>`;
+  app.querySelectorAll('[data-o]').forEach(t=>t.onclick=()=>go('opening',t.dataset.o))};
+SCREENS.opening=(id)=>{const O=[...OPEN.openings,...OPEN.traps].find(o=>o.id===id);let k=0,mode='learn',sel=null,miss=0;const ch=new Chess();
+  const ecoLine=O.matchedPlies<O.moves.length?`${O.eco} ${O.lichessName} (named after move ${Math.ceil(O.matchedPlies/2)})`:`${O.eco} ${O.lichessName}`;
+  app.innerHTML=`<div class="top">${back('openings')}<h2>${O.e} ${esc(O.name)}</h2>${speakBtn(O.idea)}</div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side">
+  <div class="card"><div class="msg"><b>Big idea:</b> ${esc(O.idea)}</div><small>ECO: ${esc(ecoLine)}${O.players?` · Famous players: ${O.players.map(esc).join(', ')}`:''}</small></div>
+  <div class="card msg" id="st"></div><div class="row" id="ctl"></div><div class="card" id="ml" style="font-family:monospace;font-size:17px"></div></div></div>`;
+  const B=new Board($('#bw'),O.side);
+  const line=()=>{const g=new Chess();return O.moves.map(m=>g.move(m))};const L=line();
+  const ml=()=>{let h='';L.forEach((m,i)=>{if(i%2===0)h+=`${i/2+1}. `;h+=`<span style="${i===k-1?'background:#ffe14d;border-radius:4px;padding:0 2px':''}${i>=k?';opacity:.25':''}">${mode==='drill'&&i>=k?'?':m.san}</span> `});$('#ml').innerHTML=h};
+  const showLearn=()=>{ch.reset();for(let i=0;i<k;i++)ch.move(O.moves[i]);const m=L[k-1];B.render(ch,{last:m?[m.from,m.to]:null,arrows:m?[[m.from,m.to]]:[]});
+    const t=k===0?`Let's learn the ${O.name}. Tap Next to see each move and why it is played.`:`${Math.ceil(k/2)}${k%2?'.':'...'} ${m.san}: ${O.why[k-1]}`;$('#st').textContent=t;speak(t);ml();
+    $('#ctl').innerHTML=`<button class="alt" id="pv" ${k===0?'disabled':''}>⬅ Back</button><button id="nx" ${k>=L.length?'disabled':''}>Next ➡</button><button class="green" id="dr">🎯 Your turn: practice</button>`;
+    $('#pv').onclick=()=>{k--;showLearn()};$('#nx').onclick=()=>{k++;showLearn()};$('#dr').onclick=()=>{mode='drill';k=0;miss=0;showDrill()}};
+  const auto=()=>{// computer plays the other side's moves
+    while(k<L.length&&ch.turn()!==O.side){ch.move(O.moves[k]);k++}};
+  const showDrill=()=>{ch.reset();k=0;auto();sel=null;drawDrill();$('#st').textContent=`Play the ${O.side==='w'?'White':'Black'} moves of the ${O.name}. I will play the other side.`;speak($('#st').textContent);$('#ctl').innerHTML=`<button class="orange" id="hn">💡 Hint</button><button class="alt" id="lb">📘 Back to learning</button>`;$('#hn').onclick=()=>{const m=L[k];if(m){miss++;B.render(ch,{marks:{[m.from]:'hintp'},arrows:[[m.from,m.to]]})}};$('#lb').onclick=()=>{mode='learn';k=0;showLearn()}};
+  const drawDrill=()=>{B.render(ch,{sel,hl:sel?legalHL(ch,sel):{},last:k?[L[k-1].from,L[k-1].to]:null});ml()};
+  B.onTap=sq=>{if(mode!=='drill'||k>=L.length)return;const pc=ch.get(sq);
+    if(sel&&legalHL(ch,sel)[sq]){const m=ch.moves({square:sel,verbose:true}).find(x=>x.to===sq&&(!x.promotion||x.promotion==='q'));sel=null;
+      if(m.san===O.moves[k]){ch.move(m.san);k++;beep('good');const t=`✅ ${m.san}: ${O.why[k-1]}`;auto();drawDrill();
+        if(k>=L.length){S.openings[O.id]=true;save();if(OPEN.openings.every(o=>S.openings[o.id]))badge('explorer');confetti();beep('win');const w=`🎉 You know the ${O.name}! ${miss?'':'Perfect, no hints!'}`;$('#st').textContent=w;speak(w);$('#ctl').innerHTML='<button class="green" data-go="openings">More openings</button>'}
+        else{$('#st').textContent=t+(k>0&&L[k-1].color!==O.side?` Then ${L[k-1].san}. Your move!`:'');speak(t)}}
+      else{miss++;beep('bad');const t=`${m.san} is a real move, but it is not the ${O.name} move. Try again or tap Hint!`;$('#st').textContent=t;speak(t);drawDrill()}return}
+    sel=pc&&pc.color===ch.turn()?sq:null;drawDrill()};
+  showLearn()};
+
 // boot
-const h=location.hash.slice(1);go(['learn','puzzles','play','coach','path','badges','parents'].includes(h)?h:'home');
+const h=location.hash.slice(1);go(['learn','puzzles','play','coach','path','badges','parents','notation','openings'].includes(h)?h:'home');
 window.__cq=Object.assign(window.__cq||{},{S,PUZZLES,LESSONS,analyze,fen:()=>window.__cq.game&&window.__cq.game.fen()});

@@ -19,3 +19,6 @@
 | Tal's Finish | Tal vs Larsen, Bled 1965 | https://www.chessgames.com/perl/chessgame?gid=1139729 |
 | Polgar's Attack | J. Polgar vs Berkes, Budapest 2003 | https://www.chessgames.com/perl/chessgame?gid=1261813 |
 | Young Magnus | Carlsen vs Ernst, Wijk aan Zee 2004 | https://www.chessgames.com/perl/chessgame?gid=1272702 |
+
+## Openings
+Main lines and ECO codes are checked by `build-openings.cjs` against the lichess-org/chess-openings database (CC0, https://github.com/lichess-org/chess-openings, copy in `sources/lichess-openings/`). Famous player names are checked against each opening's English Wikipedia article.
