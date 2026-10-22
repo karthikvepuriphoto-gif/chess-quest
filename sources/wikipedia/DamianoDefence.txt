@@ -1,0 +1,94 @@
+Damiano Defence
+{{Infobox chess opening
+|openingname = Damiano Defence
+|image = {{Chess diagram
+|
+|
+|rd|nd|bd|qd|kd|bd|nd|rd
+|pd|pd|pd|pd|  |  |pd|pd
+|  |  |  |  |  |pd|  |  
+|  |  |  |  |pd|  |  |  
+|  |  |  |  |pl|  |  |  
+|  |  |  |  |  |nl|  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|ql|kl|bl|  |rl
+|
+}}
+|moves=1.e4 e5 2.Nf3 f6
+|ECO=C40
+|birth=
+|nameorigin = [[Pedro Damiano]]
+|parentopening = [[King's Knight Opening]]
+|AKA=
+}}
+
+The '''Damiano Defence''' is a [[chess opening]] beginning with the moves:
+#[[b:Chess Opening Theory/1. e4|e4]] [[b:Chess Opening Theory/1. e4/1...e5|e5]]
+#[[b:Chess Opening Theory/1. e4/1...e5/2. Nf3|Nf3]] [[b:Chess Opening Theory/1. e4/1...e5/2. Nf3/2...f6|f6?]]
+
+The defence is one of the oldest chess openings, with games dating back to the 16th century. It is a weak opening that gives a large advantage for White after 3.Nxe5. Even if White does not go for this continuation, simple {{chessgloss|development}} leads to an advantage since 2...f6 prevents the g8-knight from developing to f6 and weakens Black's {{chessgloss|kingside}}.
+
+The ''[[Encyclopaedia of Chess Openings]]'' code for the Damiano Defence is C40 ([[King's Knight Opening]]). 
+{{AN chess|pos=toc}}
+
+==History==
+{{Chess diagram small
+|floatright
+|Schiffers vs. Chigorin, 1897  
+|rd|  |  |  |kd|bd|nd|rd
+|pd|pd|pd|bd|  |  |pd|pd
+|  |  |nd|  |  |pd|qd|  
+|  |  |  |  |nl|  |  |  
+|  |  |  |  |  |  |  |  
+|  |  |nl|  |  |  |  |  
+|pl|pl|pl|  |bl|pl|pl|pl
+|rl|  |bl|ql|  |rl|kl|  
+|Position after 10.Ne5!, White wins Black's queen. If the knight is captured, 11.Bh5 pins the queen to the king, while 10...Qf5 leads to 11.Bg4 and the queen is trapped (11...Qxe5 12.Qxd7#).
+}}
+
+The opening is named after the Portuguese chess author [[Pedro Damiano]] (1480–1544), despite the fact that he condemned it as weak and the book may actually be [[Francesc Vicent]]'s writing that he signed. In 1847, [[Howard Staunton]] wrote of 2...f6, "This move occurs in the old work of Damiano, who gives some ingenious variations on it. [[Ruy López de Segura|Lopez]], and later authors, have hence entitled it 'Damiano's Gambit'."<ref>Howard Staunton, ''The Chess-Player's Handbook'', Henry C. Bohn, 1847, p. 60.</ref> Instead, Staunton's contemporary [[George Walker (chess player)|George Walker]] more logically reserved the term "Damiano Gambit" for the knight sacrifice played by White on the third move: 1.e4 e5 2.Nf3 f6 3.Nxe5.<ref>Walker wrote of the knight sacrifice, "This constitutes the Damiano Gambit." George Walker, ''The Art of Chess-Play: A New Treatise on the Game of Chess'' (4th ed. 1846), Sherwood, Gilbert, & Piper, p. 236.</ref> Staunton referred to [1.e4 e5 2.Nf3] 2...Nc6, a highly respected move then and now, as "Damiano's defence to the {{chessgloss|king knight|K. Kt.}}'s opening".<ref>Staunton, p. 64.</ref>
+
+The Damiano Defence is never seen today in top-level play. The greatest player to play the Damiano in serious master competition was [[Mikhail Chigorin]]. As noted above, he played the 3...Qe7 line in a game against Schiffers at St. Petersburg 1897. Chigorin lost his queen on move 10 ({{em|see diagram}}), but Schiffers played so weakly that Chigorin later missed a brilliant {{chessgloss|forced mate}} and only escaped when Schiffers agreed to a [[draw (chess)|draw]] in a winning position.<ref>{{cite web|url=http://www.xs4all.nl/~timkr/chess2/diary_12.htm|title=The Richter riddle|work=Open Chess Diary (scroll down to No. 222)|accessdate=2006-03-20}}</ref> Robert McGregor played the Damiano in a 1964 [[simultaneous exhibition]] against [[Bobby Fischer]], essaying 3...Qe7 4.Nf3 d5 5.d3 dxe4 6.dxe4 Qxe4+ 7.Be2 Bf5, and drew, although Fischer did not play the best moves.<ref>[https://chessstuff.blogspot.com/2005/04/bobby-fischer-and-damianos-defense.html  Bobby Fischer and Damiano's Defense]. Chessstuff.blogspot.com. Retrieved on 2009-04-02.</ref>
+
+==White responses==
+
+===3.d4 and 3.Bc4===
+Black's 2...f6{{chesspunc|?}} is a weak move that exposes Black's [[king (chess)|king]], weakens their kingside and prevents Black from developing their [[Knight (chess)|knight]] to f6. The moves 3.d4 and 3.Bc4 are strong replies; [[I. A. Horowitz]] wrote (substituting algebraic notation for his [[descriptive chess notation|descriptive notation]]), "Simple and potent is 3.Bc4 d6 4.d4 Nc6 5.c3, after which Black chokes to death."<ref>{{cite book |last=Horowitz |first=I. A. |authorlink=Israel Albert Horowitz |title=Chess Openings: Theory and Practice |publisher=[[Simon & Schuster]] |orig-year=First pub. 1964 |page=227 n. 31. |isbn=0-671-20553-6 }}</ref>
+
+===3.Nxe5!===
+{{Chess diagram small
+| floatright
+| 
+|rd|nd|bd|qd|  |bd|nd|rd
+|pd|pd|pd|  |  |  |pd|  
+|  |  |  |  |  |  |kd|
+|  |  |  |bl|ql|  |  |pd  
+|  |  |  |  |pl|  |  |pl
+|  |  |  |  |  |  |  |  
+|pl|pl|pl|pl|  |pl|pl|  
+|rl|nl|bl|  |kl|  |  |rl
+|Position after 8...h5 
+}}
+The most forceful move is the knight [[sacrifice (chess)|sacrifice]] 3.Nxe5{{chesspunc|!}}<ref>''Understanding the Chess Openings'', Sam Collins, 2005, p. 28.</ref> Taking the knight with 3...fxe5? exposes Black to a deadly attack after 4.Qh5+ Ke7 (4...g6 loses to 5.Qxe5+, [[fork (chess)|fork]]ing king and [[rook (chess)|rook]], leaving Black down [[The exchange (chess)|the exchange]], though other options are worse) 5.Qxe5+ Kf7 6.Bc4+ d5! (6...Kg6{{chesspunc|??}} 7.Qf5+ is devastating and leads to [[Checkmate|mate]] shortly after) 7.Bxd5+ Kg6 8.h4 (8.d4? Bd6!) 8...h5 ({{em|diagram}}; 8...h6 is similar, except Black cannot play 9...Bxb7 because of 10.Qf5{{chessAN|#}}) 9.Bxb7! Bd6 (9...Bxb7 10.Qf5+ Kh6 11.d4+ g5 12.Qf7! mates quickly) 10.Qa5!, when Black's best is 10...Nc6 11.Bxc6 Rb8, and now White can play 12.Qxa7 with five extra pawns. [[Bruce Pandolfini]] notes that Black's opening is thus sometimes described as "the five pawns [[gambit]]".<ref name="Pandolfinip.92">[[Bruce Pandolfini]], ''Chess Openings: Traps and Zaps'', Simon & Schuster, 1989, p. 92. {{ISBN|0-671-65690-2}}.</ref> Alternatively, White can continue developing their [[chess piece|pieces]], remaining four pawns up. In either case, White has a clearly winning position.
+
+Since taking the knight is fatal, after 3.Nxe5 Black should instead play 3...Qe7!<ref name="Pandolfinip.91">Pandolfini 1989, p. 91.</ref> (Other Black third moves, such as 3...d5, lead to 4. Qh5+! g6 5. Nxg6!) After 4.Nf3 (4.Qh5+? g6 5.Nxg6 Qxe4+ 6.Be2 Qxg6 leaves Black ahead a piece for a pawn)<ref name="Pandolfinip.91" /> 4...Qxe4+ 5.Be2, Black has regained the pawn but has lost {{chessgloss|time}} and weakened their kingside, and will lose more time when White chases the [[queen (chess)|queen]] with Nc3, or 0-0, Re1, and a move by the [[bishop (chess)|bishop]] on e2. [[Nick de Firmian]] in ''[[Modern Chess Openings]]'' analyses instead 4...d5 5.d3 dxe4 6.dxe4, when White had a small advantage in [[Emmanuel Schiffers]]–[[Mikhail Chigorin]], [[Saint Petersburg|St. Petersburg]] 1897.<ref>''Modern Chess Openings, 15th Edition'', Random House Puzzles & Games, 2008, p. 156. {{ISBN|978-0-8129-3682-7}}.</ref>
+
+The fact that Black can only regain the pawn with 3...Qe7! shows that 2...f6? did not really defend the e-pawn at all. Indeed, even a relatively useless move like 2...a6{{chesspunc|?!}} is less risky than 2...f6? After 2...a6?! 3.Nxe5, Black could still regain the pawn with 3...Qe7 4.d4 d6, but has not weakened the kingside or prevented the {{chessgloss|king's knight}} from developing to f6.
+
+==References ==
+{{Reflist|30em}}
+
+==External links==
+{{wikibooks|Chess Opening Theory|1. e4/1...e5/2. Nf3/2...f6|Damiano Defence}}
+*{{cite web
+ | url=http://kenilworthian.blogspot.ca/2010/07/defeating-damianos-defense.html 
+ | title=Defeating Damiano's Defense
+ | publisher=The Kenilworthian 
+ | date=2010-07-28
+ | accessdate=2012-07-20}} A comprehensive list of material available online about Damiano's Defence.
+
+{{Chess}}
+{{Authority control}}
+
+[[Category:Chess openings]]
+[[Category:16th century in chess]]

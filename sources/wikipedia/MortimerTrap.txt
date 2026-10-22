@@ -1,0 +1,54 @@
+Ruy Lopez, Mortimer Trap
+{{short description|Chess opening trap}}
+{{Chess diagram
+| floatright
+| 
+|rd|  |bd|qd|kd|bd|  |rd
+|pd|pd|  |pd|nd|pd|pd|pd
+|  |  |pd|  |  |nd|  |  
+|  |bl|  |  |nl|  |  |  
+|  |  |  |  |pl|  |  |  
+|  |  |  |pl|  |  |  |  
+|pl|pl|pl|  |  |pl|pl|pl
+|rl|nl|bl|ql|kl|  |  |rl
+|Position after 5...c6. Black wins a piece.
+}}
+
+[[File:James_Mortimer.jpg | thumb | right]]
+The '''Mortimer Trap''' is a [[chess opening]] [[Chess trap|trap]] in the [[Ruy Lopez]] named after [[James Mortimer (chess player)|James Mortimer]].  The Mortimer Trap is a true trap in the sense that Black deliberately plays an inferior move to tempt White into making a mistake.
+{{AN chess|pos=toc}}
+
+==Analysis==
+'''1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6'''
+:The trap begins with Black playing the [[Ruy Lopez#Berlin Defence|Berlin Defense]] to the Ruy Lopez. Although the Berlin was much more popular in the 19th century than in the 20th, it "became the height of [[chess theory|theory]] when [[Vladimir Kramnik]] used it as his main defense to defeat [[Garry Kasparov]] in their 2000 [[World Chess Championship|World Championship]] match."{{sfn|de Firmian|2008|p=43}}
+
+'''4. d3'''
+:White plays a quiet alternative to the more common 4.0-0, 4.d4, or 4.Nc3 (the last would transpose to the [[Four Knights Game]]). [[I. A. Horowitz]] and [[Fred Reinfeld]] wrote that 4.d3 is "[[Wilhelm Steinitz|Steinitz's]] move, with which he scored many spectacular successes during his long reign as [[World Chess Championship|World Champion]]."{{sfn|Horowitz|Reinfeld|1954|p=59}}
+
+'''4... Ne7{{chesspunc|?!}}'''{{sfn|Matanović|1981|loc=p. 302, n. 2}}
+:The Mortimer Defense,{{sfn|Hooper|Whyld|1996|loc=p. 265. ''Mortimer Defence''}} intending to reroute the [[knight (chess)|knight]] to g6. This rare move loses {{chessgloss|time}} and thus is inferior to other moves, but it sets a trap. White has several acceptable replies, for example 5.Bc4 c6 6.Nc3 Ng6 7.h4{{chesspunc|!}} with the upper hand and an attack ([[Paul Keres|Keres]], [[Friðrik Ólafsson|Olafsson]]),{{sfn|Matanović|1981|loc=p. 302, n. 2}} but the tempting capture of the black [[pawn (chess)|pawn]] on e5 is a mistake. 
+
+'''5. Nxe5{{chesspunc|?}} c6!''' (see diagram)
+:Attacking the white [[bishop (chess)|bishop]] and threatening 6...Qa5+. If the bishop moves (6.Ba4 or 6.Bc4), Black wins a piece with 6...Qa5+, [[fork (chess)|forking]] the white [[king (chess)|king]] and [[knight (chess)|knight]].
+
+'''6. Nc4{{chesspunc|!?}}'''
+:Covering a5 and thus preventing 6...Qa5+, and threatening [[smothered mate]] with 7.Nd6#. 
+
+'''6... Ng6!'''
+:After 6...d6 7.Ba4, Black forks the white bishop and knight with 7...b5, winning a piece for two pawns.{{sfn|Hooper|Whyld|1996|loc=p. 265. ''Mortimer Trap''}} Likewise after 6...Ng6, Black will win {{chessgloss|material}}.
+
+==Discussion==
+Mortimer played his defense at the [[London 1883 chess tournament|1883 London tournament]] against [[Berthold Englisch]], [[Samuel Rosenthal]], and [[Josef Noa]], losing all three games.{{sfn|Minchin|1973|pp=179, 257, 306}} [[Johannes Zukertort]], the tournament winner, also played it against Englisch, the game resulting in a [[draw (chess)|draw]].<ref>[http://www.chessgames.com/perl/chessgame?gid=1001912 Englisch–Zukertort]</ref> Zukertort wrote of 4...Ne7, "Mr. Mortimer claims to be the inventor of this move. I adopted it on account of its novelty."{{sfn|Minchin|1973|p=22}} The first edition of the [[treatise]] ''Chess Openings, Ancient and Modern'' analyzed 5.Nc3 Ng6 6.0-0 c6 7.Ba4 d6 8.Bb3 and now the authors gave either 8...Be6 or 8...Be7 as giving Black an equal game.{{sfn|Freeborough|Ranken|1889|p=127}} A bit more recently, Horowitz and Reinfeld observed of 4...Ne7, "This time-wasting retreat of the Knight to an inferior square blocks the development of the King Bishop ... . Yet it is a matter of record that this [[swindle (chess)|pitfall]] had a vogue for many years."{{sfn|Horowitz|Reinfeld|1954|p=59}}
+
+==References==
+{{reflist|30em}}
+
+'''Bibliography'''
+*{{cite book | last=de Firmian| first=Nick | author-link=Nick de Firmian | title=[[Modern Chess Openings]] | edition=15th | publisher=Random House | year=2008 | isbn=978-0-8129-3682-7}}
+*{{cite book | last1=Freeborough | first1=E. | last2=Ranken | first2=C. E. | title=Chess Openings, Ancient and Modern | publisher=Trübner and Co| year=1889}}
+*{{cite book |last1=Hooper |first1=David |authorlink1=David Vincent Hooper |last2=Whyld |first2=Kenneth |authorlink2=Kenneth Whyld |title=[[The Oxford Companion to Chess]] |publisher=[[Oxford University Press]] |year=1996 |edition=2nd |orig-date=First pub. 1992 |isbn=0-19-280049-3 }}
+*{{cite book | last1=Horowitz | first1=I. A. | author1-link=Israel Albert Horowitz | last2=Reinfeld | first2=Fred | author2-link=Fred Reinfeld | title=Chess Traps, Pitfalls and Swindles | publisher=Simon and Schuster | year=1954 | isbn=0-671-21041-6 | url-access=registration | url=https://archive.org/details/chesstrapspitfal00horo_0 }}
+*{{cite book |editor-last=Matanović |editor-first=Aleksandar |editor-link=Aleksandar Matanović |title=[[Encyclopaedia of Chess Openings]] |publisher=[[Chess Informant]] |location=Yugoslavia |volume=C |edition=2nd |year=1981 |isbn= }}
+*{{cite book | editor1-last=Minchin | editor1-first=J. I. | title=Games Played in the London International Chess Tournament 1883 | publisher=British Chess Magazine| year=1973|edition=reprint |asin=B000HX3HE6}}
+
+[[Category:Chess traps]]

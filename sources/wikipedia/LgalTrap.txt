@@ -1,0 +1,161 @@
+Legal Trap
+{{Short description|One of the methods of fast checkmate in chess game}}
+The '''Legal Trap''' or '''Blackburne Trap''' (also known as '''Legal Mate''') is a [[chess opening]] {{chessgloss|trap}}, characterized by a [[queen sacrifice]] followed by checkmate involving three minor pieces if Black accepts the sacrifice. The trap is named after the French player [[Legall de Kermeur|Sire de Legall]]. [[Joseph Henry Blackburne]], a British master and one of the world's top five players in the latter part of the 19th century, set the trap on many occasions.
+{{AN chess|pos=toc}}
+
+==Natural move sequence==
+{{unreferenced section|date=March 2026}}
+There are a number of ways the trap can arise; the one below shows a natural move sequence from a [[simultaneous exhibition]] in Paris. [[André Chéron (chess player)|André Cheron]], one of France's leading players, won with the trap as White against Jeanlose:
+
+'''1. e4 e5 2. Nf3 Nc6 3. Bc4 d6''' 
+:The [[Semi-Italian Opening]].
+
+'''4. Nc3 Bg4{{chesspunc|?!}}'''
+:Black [[pin (chess)|pin]]s the [[knight (chess)|knight]] in the fight over the center. Strategically this is a sound idea, but there is a tactical flaw with the move.
+
+'''5. h3''' 
+:In this position 5.Nxe5{{chesspunc|?}} would be {{chessgloss|unsound}}. While the white queen still cannot be taken (5...Bxd1{{chesspunc|??}}) without succumbing to a checkmate in two moves, 5...Nxe5 would win the white knight (for the pawn) and protect the bishop on g4. Instead, with 5.h3, White "puts the question" to the [[bishop (chess)|bishop]] which must either retreat on the c8–h3 diagonal, capture the knight, be captured, or as in this game, move to an insecure square.
+
+{{Chess diagram
+ |floatright
+ |
+ |rd|  |  |qd|kd|bd|nd|rd
+ |pd|pd|pd|  |  |pd|pd|pd
+ |  |  |nd|pd|  |  |  |  
+ |  |  |  |  |pd|  |  |bd
+ |  |  |bl|  |pl|  |  |  
+ |  |  |nl|  |  |nl|  |pl
+ |pl|pl|pl|pl|  |pl|pl|  
+ |rl|  |bl|ql|kl|  |  |rl
+ |Position after 5...Bh5?
+}}
+'''5... Bh5{{chesspunc|?}}''' (diagram)
+:Black apparently maintains the pin, but this is a tactical mistake which loses at least a [[pawn (chess)|pawn]] (see below). Relatively best is 5...Bxf3 (or 5...Bd7), surrendering the {{chessgloss|bishop pair}} and giving White a comfortable lead in {{chessgloss|development}}, but maintaining {{chessgloss|material}} equality. 5...Be6{{chesspunc|!?}} is also possible.
+
+'''6. Nxe5{{chesspunc|!}}'''
+:The tactical refutation. White seemingly ignores the pin and surrenders the [[queen (chess)|queen]]. Black's best course now is to play 6...Nxe5, where with 7.Qxh5 Nxc4 8.Qb5+ followed by 9.Qxc4, White remains a pawn ahead, but Black can at least play on. Instead, if Black takes the queen, White has checkmate in two moves:
+
+'''6... Bxd1{{chesspunc|??}}'''
+: A [[blunder (chess)|blunder]], winning the queen but losing the game. Black should have played 6...Nxe5 or 6...dxe5 as mentioned in the previous note.
+
+'''7. Bxf7+ Ke7 8. Nd5{{chessAN|#}}'''
+:The final position is a [[pure mate]], meaning that for each of the eight squares around the black king, there is exactly one reason the king cannot move there, and exactly one reason why the king cannot remain on its current square.<ref>This version of the Legal Trap was presented in {{cite book|title=Spillet i mitt liv|author=Andre Bjerke|year=1975|publisher=Aschehoug |isbn=82-03-07968-7|language=no}}</ref>
+{{Chess diagram
+ |floatleft
+ |
+ |rd|  |  |qd|  |bd|nd|rd
+ |pd|pd|pd|  |kd|bl|pd|pd
+ |  |  |nd|pd|  |  |  |  
+ |  |  |  |nl|nl|  |  |  
+ |  |  |  |  |pl|  |  |  
+ |  |  |  |  |  |  |  |pl
+ |pl|pl|pl|pl|  |pl|pl|  
+ |rl|  |bl|bd|kl|  |  |rl
+ |Final position after 8.Nd5#
+}}
+{{clear}}
+
+==Legal versus Saint Brie==
+The original game featured Legal playing at [[Chess handicap|rook odds]] (without Ra1) against Saint Brie in [[Paris]] 1750:{{sfn|Walker|1835|p=91}}
+
+'''1. e4 e5 2. Nf3 d6 3. Bc4 Bg4?! 4. Nc3 g6? 5. Nxe5 Bxd1?? 6. Bxf7+ Ke7 7. Nd5# {{chessAN|1–0}}'''<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1251892 |title=Kermur Sire De Legal vs. Saint Brie, Paris (1750) |website=[[Chessgames.com]] }}</ref><ref>Georges Renaud & Victor Kahn ''The Art of Checkmate''; Dover 1962</ref>
+
+:The above version is cited in most publications, sometimes with the move 4... h6 instead of 4... g6. However, research suggests that the {{chessgloss|move order}} of the game had been altered retrospectively in order to remove a flaw in the original game.<ref>A. Mazukewitsch, ''Verflixte Fehler'' (Berlin 1985), as cited by Stephan Maass, 
+[http://sc-weisse-dame.de/v2/uploads/file/Der%20Seekadett%20-%20Stephan%20Maass.pdf "Das Kuriositäten - Kabinett <nowiki>[3]</nowiki> : Mysteriöse Fälle der Schachgeschichte : »Das musikalisch-schachliche Operetten-Mysterium«] (PDF, 1.5 MB), originally in ''Clubzeitschrift des SC Weisse Dame'', (vol. 11 no. 3), 22-8-1997; [https://web.archive.org/web/20090624225948/http://www.sc-weisse-dame.de/kuka3.html archived by the Wayback Machine from the Weisse Dame website], 24-6-2009; see also René Gralla, [http://de.chessbase.com/post/das-seekadetten-matt-original-und-flschung Das Seekadetten-Matt: Original und Fälschung], an interview with Maass on the [[ChessBase]] website, 30-3-2011</ref> Also the year 1750 is assumed to be wrong; it is more likely that the game was played in 1787, and that the original move order was:{{sfn|Walker|1835|p=91}}
+
+'''1. e4 e5 2. Bc4 d6 3. Nf3 Nc6 4. Nc3 Bg4 5. Nxe5? Bxd1?? 6. Bxf7+ Ke7 7. Nd5# 1–0'''
+:Here the combination is flawed, as with 5... Nxe5 Black could have gained a piece. It is reported that Legal disguised his trap with a psychological trick: he first touched the knight on f3 and then retreated his hand as if realizing only now that the knight was pinned. Then, after his opponent reminded him of the [[touch-move rule]], he played Nxe5, and the opponent grabbed the queen without thinking twice.<ref>{{Cite web |title=Francois de Legall vs Saint Brie (1750) 18 & Legal |url=https://www.chessgames.com/perl/chessgame?gid=1251892 |access-date=2026-10-16 |website=www.chessgames.com}}</ref>
+
+==Other variations==
+{| align="left" border="0" cellpadding="1" cellspacing="0"
+|-valign="top"
+|
+{{Chess diagram 
+ |floatleft
+ |Black springs Legal's Trap on White
+ |rd|  |  |bl|kd|  |  |rd
+ |pd|pd|pd|  |  |pd|pd|pd
+ |  |  |pd|  |  |  |  |  
+ |  |  |  |  |  |  |  |  
+ |  |  |  |  |nd|  |bd|  
+ |  |  |  |pl|  |  |  |  
+ |pl|pl|pl|  |kl|bd|pl|pl
+ |rl|nl|  |ql|  |bl|  |rl
+ |Sometimes the mate can be administered by a different piece. This game from [[Petrov's Defence]] is very old (The line after 3.. Nc6?! 4.Nxc6 is now commonly referred to as the Stafford Gambit): 
+:1.e4 e5 2.Nf3 Nf6 3.Nxe5 Nc6?! 4.Nxc6 dxc6 5.d3 Bc5 6.Bg5? Nxe4 7.Bxd8?? Bxf2+ 8.Ke2 Bg4# {{chessAN|0–1}}
+}}
+|
+{{Chess diagram 
+ |floatleft
+ |The Trap in a modern middlegame
+ |rd|  |  |  |  |kd|  |rd
+ |pd|  |pd|  |nd|pd|pd|pd
+ |  |bd|  |pd|  |qd|  |  
+ |  |  |  |  |pd|  |  |  
+ |bl|  |  |  |pl|  |bd|  
+ |  |  |pl|pl|bl|nl|  |  
+ |  |pl|  |  |  |pl|pl|pl
+ |rl|  |  |ql|kl|  |  |rl
+ |Position after 13...Ne7? after a [[Ruy Lopez]] [[Ruy Lopez#Bird's Defence|Bird's Defence]] opening from the game [[Nigel Short|Short]]–[[Viktor Kupreichik|Kupreichik]], Hastings 1981/82.<ref>{{cite web|url=http://www.chessgames.com/perl/chessgame?gid=1087368|title=Short–Kupreichik, Hastings 1981/82|website=[[Chessgames.com]]|accessdate=4 July 2020}}</ref> White gained a pawn with 14.Nxe5!; 14...Bxd1? is met with 15. Nd7+!, winning the queen and bishop (15...Kg8 16. Nxf6+) and damaging Black's pawn structure (16...gxf6 creates an [[isolated pawn|isolated]] h-pawn and [[doubled pawns|doubled]] f-pawns), while taking the knight leaves the bishop hanging and allows White to activate their queen. Short went on to win the game.<ref>Hooper & Whyld (1987), p. 182. ''Legall's trap''.</ref> 
+}}
+|
+{{Chess diagram 
+ |floatleft
+ |The Sea-Cadet mate
+ |rd|  |  |qd|kd|bd|nd|rd
+ |pd|pd|pd|  |  |pd|pd|pd
+ |  |  |  |pd|  |  |  |  
+ |  |  |  |  |nd|  |  |  
+ |  |  |bl|  |pl|  |bd|  
+ |  |  |nl|  |  |nl|  |  
+ |pl|pl|  |  |  |pl|pl|pl
+ |rl|  |bl|ql|  |rl|kl|  
+ |A version of Legal's Mate occurred after 7...Ne5 in a casual game won by [[Ernst Falkbeer]] at Vienna in 1847.<ref>{{cite web|url=https://www.chessgames.com/perl/chessgame?gid=1242967|title=Falkbeer–NN, Vienna 1847|website=[[Chessgames.com]]|accessdate=12 December 2020}}</ref> The game was arranged as a display of living chess in Act II of ''Der Seekadet'', an 1876 operetta by Genée and Zell:<ref>Hooper & Whyld (1987), p. 302. ''Sea-Cadet mate''.</ref> 
+:1.e4 e5 2.Nf3 Nc6 3.d4 exd4 4.c3 (the [[Scotch Game#Göring Gambit|Göring Gambit]]) dxc3 5.Nxc3 d6 6.Bc4 Bg4 7.0-0 Ne5 8.Nxe5 Bxd1 9.Bxf7+ Ke7 10.Nd5# 1–0
+}}
+|}
+{{clear}}
+
+==Considerations==
+A mating pattern where a pinned knight moves, allowing the capture of the player's queen but leading to a checkmate with three minor pieces, occasionally occurs at lower levels of play, though masters would not normally fall for it. According to Bjerke (''Spillet i mitt liv''), the Legal Trap has ensnared countless unwary players. One author writes that "Blackburne sprang it several hundreds of times during his annual tours."<ref>Francis J. Wellmuth ''The Golden Treasury of Chess''; Chess Review 1943, p. 147.</ref>
+
+==See also==
+* [[Checkmate pattern]]
+* [[Elephant Trap]]
+
+==References==
+{{reflist|30em}}
+
+'''Bibliography'''
+*{{cite book
+ |last1=Hooper 
+ |first1=David  
+ |authorlink1=David Vincent Hooper
+ |last2=Whyld 
+ |first2=Kenneth 
+ |authorlink2=Kenneth Whyld
+ |title=[[The Oxford Companion to Chess]]
+ |publisher=[[Oxford University Press]]
+ |year=1987
+ |isbn=0-19-281986-0 }}
+*{{cite book
+ |first=George
+ |last=Walker
+ |authorlink=George Walker (chess player)
+ |title=A Selection of Games at Chess
+ |year=1835
+ |location=London
+ |publisher=Sherwood, Gilbert & Piper
+ |url=https://archive.org/details/bub_gb_5SUMAAAAYAAJ
+ |via=[[Internet Archive]]
+}}
+
+==External links==
+* [http://www.chessgames.com/perl/chessgame?gid=1251892 Kermur Sire De Legal vs Saint Brie, Paris, 1750] at [[Chessgames.com]]
+
+{{Chess}}
+
+{{DEFAULTSORT:Legal Trap}}
+[[Category:Chess traps]]
+[[Category:Chess checkmates]]
+[[Category:18th century in chess]]

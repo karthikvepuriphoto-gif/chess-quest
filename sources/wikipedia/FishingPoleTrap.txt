@@ -1,0 +1,97 @@
+Fishing Pole Trap
+{{Short description|Chess opening trap}}
+The '''Fishing Pole''' is a [[chess opening]] [[Chess trap|trap]] most common in the [[Ruy Lopez]] (especially in the [[Berlin Defence (chess)|Berlin Defence]] and [[Ruy Lopez, Exchange Variation|Exchange Variation]]); however, the trap can be used in any opening or in the [[Chess middlegame|middlegame]]. Its broadest definition is a move that [[sacrifice (chess)|sacrifices]] a knight or bishop on the g-file to open up the h-file, after the opponent has {{chessgloss|castling short|short castled}} and before the player deploying the trap, usually Black, has short castled.<ref>{{cite book |last1=Ippolito |first1=Dean |title=Tricks, Tactics, and Tips in the Chess Opening Practical Lessons for Ambitious Improvers |date=19 July 2022 |publisher=New in Chess |isbn=9789493257436 |pages=Chapter 8 |access-date=5 September 2023|url=https://books.google.com/books?id=IqiTEAAAQBAJ}}</ref><ref>{{cite web |title=Fishing Pole Trap |website=THE CHESSWEBSITE |date=30 July 2012 |access-date=2 September 2023 |url=https://www.thechesswebsite.com/fishingpoletrap/#:~:text=The%20Fishing%20Pole%20stems%20from,usually%20not%20a%20good%20thing.}}</ref><ref>{{cite web |title=Time to lure the fish!! Fishing Pole Trap |website=chess.com |date=24 November 2020 |access-date=2 September 2023 |url=https://www.chess.com/blog/IAMDAGOAT123456789/fishing-pole-trap}}</ref>
+
+==Exchange Variation==
+'''1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Bxc6 dxc6'''
+: Black takes with 4...dxc6 to open the diagonal for the bishop, but doubled their pawns, weakening their position in the endgame.
+
+{{Chess diagram
+| floatright
+| 
+|rd|  |  |qd|kd|bd|nd|rd
+|  |pd|pd|  |  |pd|pd|
+|pd|  |pd|  |  |  |  |  
+|  |  |  |  |pd|  |  |pd  
+|  |  |  |  |pl|  |bd|  
+|  |  |  |  |  |nl|  |pl  
+|pl|pl|pl|pl|  |pl|pl|
+|rl|nl|bl|ql|  |rl|kl|
+|1.e4 e5 2.Nf3 Nc6 3.Bb5 a6 4.Bxc6 dxc6 5.0-0 Bg4 6.h3 h5!
+}}
+
+'''5. 0-0 Bg4 6. h3 h5{{chesspunc|!}}''' (diagram)
+: Black pins the knight to the queen by playing 5...Bg4. White tries to kick the bishop back by playing 6.h3, but Black responds 6...h5!. This move gives the Fishing Pole its name: the black bishop on g4 is the bait and the h5-pawn is the hook.
+
+'''7. hxg4{{chesspunc|??}} hxg4'''
+: A [[Blunder (chess)|blunder]]. White should have played 7.d3, allowing them to block the queen from moving 9...Qh4 with 9.Ng5 after 8.hxg4.{{Huh?|date=April 2026}} After 7...hxg4 White will likely make one of two possible blunders:{{pb}}'''8. Nxe5?? Qh4! 9. f4 g3 10. Qh5 Rxh5 11. Rf3 Qh1#'''<br />After taking the e5-pawn White is 3 points up on material, but checkmate is now inevitable in 4 or less moves after 8...Qh4!{{pb}}'''8. Nh2?? Qh4! 9. Re1 Qxh2+ 10. Kf1 Qh1+ 11. Ke2 Qxg2 12. d3 Qf3+ 13. Kd2 Qxf2+'''<br />While this blunder avoids checkmate, it does lead to the loss of a knight and two pawns while the white king is left exposed after walking to the {{chessgloss|queenside}}.
+
+==Berlin Defense==
+'''1. e4 e5 2. Nf3 Nc6 3. Bb5 Nf6'''
+:The [[Berlin Defence (chess)|Berlin]] {{chessgloss|variation}} of the [[Ruy Lopez]] was made famous in the [[Classical World Chess Championship 2000]] by challenger [[Vladimir Kramnik]], who used it against champion [[Garry Kasparov]].<ref>{{Cite web|url=https://www.mark-weeks.com/chess/a0a1kkix.htm|title=2000 Kramnik – Kasparov : World Chess Championship|website=www.mark-weeks.com|access-date=2 September 2023 }}</ref> It threatens the pawn on e4 and gets Black ready to castle.
+
+'''4. 0-0'''
+:The most common reply to the Berlin Defense. The king is protected by moving it to the corner and the rook prepares to be moved to e1 if the knight takes on e4.
+
+'''4... Ng4?? 5. h3'''
+:The knight moves away from the center and after 5.h3 it will be kicked back to the f6-square leading to a lost [[Tempo (chess)|tempo]], giving the white knight the chance to take the e5-pawn with the line 5...Nf6 6.Bxc6 dxc6 7.Nxe5.
+
+{{Chess diagram
+| floatright
+| 
+|rd|  |bd|qd|kd|bd|  |rd
+|pd|pd|pd|pd|  |pd|pd|
+|  |  |nd|  |  |  |  |  
+|  |bl|  |  |pd|  |  |pd  
+|  |  |  |  |pl|  |nd|  
+|  |  |  |  |  |nl|  |pl  
+|pl|pl|pl|pl|  |pl|pl|
+|rl|nl|bl|ql|  |rl|kl|
+|1.e4 e5 2.Nf3 Nc6 3.Bb5 Nf6 4.0-0 Ng4?? 5.h3 h5
+}}
+
+'''5... h5'''<ref>{{cite book |last1=Murugan |first1=Karthik |title=Legal Attack |date=30 December 2020 |publisher=Archway Publishing |isbn=9781480897229 |page=65 |url=https://books.google.com/books?id=MykWEAAAQBAJ}}</ref> (diagram)
+:This move gives the Fishing Pole its name: the black knight on g4 is the bait and the h5-pawn is the hook.
+
+'''6. hxg4?? hxg4 7. Nh2?? Qh4'''
+:Luckily, most players take the bait with a line with two blunders. After 7...Qh4, checkmate in 11 or 6 moves is inevitable with the lines:{{pb}}'''8. f4 g3 9. Rf3 Qxh2+ 10. Kf1 Nd4 11. Ke1 Qxg2 12. Rf1 Rh1 13. Qe2 Nxe2 14. Rxh1 Nd4 15. Nc3 Qxh1+ 16. Bf1 g2 17. Kf2 gxf1=Q+ 18. Ke3 Nxc2#'''<br />Checkmate in 11 moves with two queens.{{pb}}'''8. f3 g3 9. Rf2 Nd4 10. Kf1 gxh2 11. Ke1 h1=Q+ 12. Bf1 Qxf1+ 13. Kxf1 Qh1#'''<br />Checkmate in 6 moves with the queen and the knight.{{pb}}'''8. Re1 Qxh2+ 9. Kf1 Nd4 10. f4 g3 11. Bxd7+ Bxd7 12. Qh5 Qh1+ 13. Qxh1 Rxh1#'''<br />Checkmate in 6 moves with the rook and the knight.
+
+==History==
+The earliest known example of the trap is during the mid-game in [[Johannes Zukertort]]–[[Simon Winawer]] at the 1883 London Tournament ({{em|see diagram}}). The chess master [[Johannes Zukertort]] won the game.<ref>{{cite web |title=Johannes Zukertort vs. Simon Winawer |website=[[Chessgames.com]] |access-date=2 September 2023 |url=https://www.chessgames.com/perl/chessgame?gid=1001993 }}</ref>
+
+{{Chess diagram
+| floatleft
+| 
+|rd|  |  |qd|kd|  |  |rd
+|  |pd|bd|nd|  |pd|pd|
+|pd|  |pd|  |pd|  |  |  
+|  |  |pl|pd|  |bd|  |pd  
+|pl|pl|  |pl|  |  |nd|  
+|  |  |nl|  |pl|nl|  |pl  
+|  |  |  |  |bl|pl|pl|
+|rl|  |bl|ql|  |rl|kl|
+|1.d4 d5 2.e3 Bf5 3.Nf3 e6 4.Be2 Bd6 5.0-0 Nf6 6.c4 c6 7.Nc3 Nbd7 8.c5 Bc7 9.b4 a6 10.a4 Ng4 11.h3 h5
+}}
+{{clear}}
+
+Move 12 of game 8 of the [[World Chess Championship 2023]] between [[Ian Nepomniachtchi]] and [[Ding Liren]] used the trap ({{em|see diagram}}).<ref>{{Cite web |access-date=17 September 2023 |title=Ding drops crucial victory as Nepomniachtchi maintains lead in title match |url=https://www.fide.com/news/2351|website=[[FIDE]] }}</ref>
+
+{{Chess diagram
+| floatleft
+| Ding vs. Nepomniachtchi, game 8
+|rd|  |  |qd|  |rd|kd|
+|pd|  |  |  |  |pd|pd|
+|bd|pd|nd|pd|pd|nd|  |pd  
+|  |  |pd|  |  |  |bl|  
+|  |  |pl|pl|pl|  |  |pl  
+|pl|  |pl|  |  |  |nl|  
+|rl|  |  |  |  |pl|pl|
+|  |  |  |ql|kl|bl|  |rl
+|1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.e3 0-0 5.a3 Bxc3+ 6.bxc3 d6 7.Ne2 c5 8.Ng3 Nc6 9.Ra2 b6 10.e4 Ba6 11.Bg5 h6 12.h4!
+}}
+{{-}}
+
+==References==
+{{reflist|35em}}
+
+[[Category:Chess traps]]

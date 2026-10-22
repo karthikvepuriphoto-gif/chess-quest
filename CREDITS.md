@@ -22,3 +22,9 @@
 
 ## Openings
 Main lines and ECO codes are checked by `build-openings.cjs` against the lichess-org/chess-openings database (CC0, https://github.com/lichess-org/chess-openings, copy in `sources/lichess-openings/`). Famous player names are checked against each opening's English Wikipedia article.
+
+## Fast Wins (learn from bad moves)
+Every move list was checked ply by ply against a fetched source (copies in `sources/wikipedia/` and `sources/*.pgn`) by `build-fastwins.cjs`, replayed in chess.js, and checked with Stockfish (depth 18): the bad move must leave the loser at -1.5 or worse (or mated), and the "better" move must be at least 1.5 pawns better.
+- Wikipedia (CC BY-SA 4.0): Fool's mate, Scholar's mate, Légal Trap, Blackburne Shilling Gambit, Englund Gambit, Fishing Pole Trap, Elephant Trap, Lasker Trap, Siberian Trap, Mortimer Trap, Noah's Ark Trap, Budapest Gambit (Kieninger Trap), Magnus Smith Trap, Damiano Defence.
+- chessgames.com game scores: Teed–Delmar (gid 1242990; dated 1881 there, 1896 in some books), Gibaud–Lazard 1924 (gid 1243036; listed as a composition, labeled so in the app), Diemer–Halosar 1934 (gid 1243072), Alekhine–Vasić 1931 simul (gid 1012717), Réti–Tartakower 1910.
+- "Better" moves come from the source page where it gives one (Scholar 3...g6, Légal 6...Nxe5, Blackburne 5.Bxf7+, Englund 6.Nc3, Lasker 6.fxe3, Siberian 9.Nb5, Mortimer 5.Bc4, Noah 8.Bd5, Magnus Smith 8...Ng4, Damiano 3...Qe7); otherwise Stockfish's best move (depth 20).

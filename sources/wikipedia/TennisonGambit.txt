@@ -1,0 +1,65 @@
+Tennison Gambit
+{{Use dmy dates|date=August 2021}}
+{{Infobox chess opening
+|openingname = Tennison Gambit
+|image = {{Chess diagram|| 
+|rd|nd|bd|qd|kd|bd|nd|rd
+|pd|pd|pd|  |pd|pd|pd|pd
+|  |  |  |  |  |  |  |  
+|  |  |  |pd|  |  |  |  
+|  |  |  |  |pl|  |  |  
+|  |  |  |  |  |nl|  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|ql|kl|bl||rl
+}}
+|moves = 1.Nf3 d5 2.e4 <br />or <br/>1.e4 d5 2.Nf3
+|ECO = A06
+|birth = 
+|nameorigin = Otto Mandrup Tennison
+|parentopening = [[Zukertort Opening]]
+|AKA = {{ubl|[[István Abonyi|Abonyi]] Gambit|Black Rook's Gambit|[[Lemberg]] Gambit<ref name="OCC">{{cite book |last1=Hooper |first1=David |authorlink1=David Vincent Hooper |last2=Whyld |first2=Kenneth |authorlink2=Kenneth Whyld |title=[[The Oxford Companion to Chess]] |publisher=[[Oxford University Press]] |year=1996 |edition=2nd |origyear=First pub. 1992 |entry=Tennison Gambit |page=416 |isbn=0-19-280049-3 }}</ref>|[[Lviv]] Gambit|Polish Gambit|[[Johannes Zukertort|Zukertort]] Gambit|[[ICBM]] Gambit|[[ICBM]] Variation}}
+}}
+
+The '''Tennison Gambit''' is a [[chess opening]] in which White [[gambit]]s a [[Pawn (chess)|pawn]].<ref>{{cite book |authorlink=Eric Schiller |last=Schiller |first=Eric |title=Gambit Opening Repertoire for White |chapter=Tennison Gambit |pages=171–178 |publisher=Cardoza Publishing |isbn=978-0-940685-78-9 |date=1998 }}</ref><ref>{{cite journal |url=http://www.vachess.org/news/1998_2.pdf |format=PDF |journal=Virginia Newsletter |date=1998 |pages=13–15 |number=2 |publisher=Virginia Chess Federation |department=The Gambiteer |first=Andy |last=Tejler |title=Tennison Gambit }}</ref><ref>{{cite web |url=https://www.365chess.com/eco/A06_Tennison_(Lemberg_Zukertort)_gambit |work=365.com |title=A06: Tennison (Lemberg, Zukertort) gambit }}</ref><ref>{{cite web |url=http://www.chessgames.com/perl/chesscollection?cid=1009312 |title=Tennison gambit Collection |website=[[Chessgames.com]] }}</ref>
+
+The opening moves begin with either the [[Zukertort Opening]]:<ref>{{cite web |url=http://www.chessgames.com/perl/chessopening?eco=A06 |title=Reti Opening A06 |website=[[Chessgames.com]] }}</ref>
+
+:1. [[b:Chess Opening Theory/1. Nf3|Nf3]] [[b:Chess Opening Theory/1. Nf3/1...d5|d5]] <br />2. e4
+
+or the [[Scandinavian Defense]]:
+:1. [[b:Chess Opening Theory/1. e4|e4]] [[b:Chess Opening Theory/1. e4/1...d5|d5]] <br />2. Nf3
+
+The ''[[Encyclopaedia of Chess Openings]]'' code for the Tennison Gambit is A06.
+
+{{AN chess|pos=toc}}
+
+==History==
+The first person to significantly research this opening was chess amateur Otto Mandrup Tennison (1834–1909).<ref name="Wall">[http://billwall.phpwebhosting.com/articles/Tennison%20Gambit.htm Wall, Bill. ''Tennison Gambit''.]</ref><ref>{{cite web |url=http://www.chessgames.com/perl/chessplayer?pid=99715 |title=Otto M. Tennison |website=[[Chessgames.com]] }}</ref> Tennison was born in Denmark, studied in Germany and moved to the United States in 1854.<ref name=OCC /> There, he played in the chess clubs of [[New Orleans]]. Many strong players picked up the idea from the first half of the 20th century.
+
+==Analysis==
+The Tennison Gambit is considered theoretically unsound, as White [[Sacrifice (chess)|sacrifices a pawn]] immediately with no solid positional [[Compensation (chess)|compensation]]. Without precise counterplay, however, Black can easily fall into a number of tactical [[List of chess traps|traps]] that leave White ahead.<ref name="lichess">{{cite web |url=https://lichess.org/study/7pODei7u/AvAXyWtz |title=Dirty Chess Tricks in Tennison Gambit: The Opening |author=((Raidmax21)) |date=2018 |work=Lichess |department=Studies }}</ref> 
+
+After 2...dxe4 3.Ng5:
+*3...Nf6 4.Bc4 e6 5.Nc3 a6 6.Ngxe4 Nxe4 7.Nxe4 b5 8.Be2 Bb7 9.Bf3 and White had the advantage in [[Evgenij Ermenkov|Ermenkov]]–Bonchev, Bulgaria 1970.
+* 3...e5{{chesspunc|!}} 4.Nxe4 f5 and 4.h4 Be7 5.Bc4 Bxg5 6.Qh5 g6 7.Qxg5 f6 favor Black.<ref>{{cite book |last1=Benjamin |first1=Joel |authorlink1=Joel Benjamin |last2=Schiller |first2=Eric |authorlink2=Eric Schiller |title=Unorthodox Openings |publisher=[[Macmillan Publishers (United States)|Macmillan Publishing Company]] |year=1987 |page=79 |contribution=Tennison Gambit |isbn=0-02-016590-0}}</ref>
+* 3...Bf5 and Black has the better position. A continuation might be 4.g4 Bg6 5.Bg2 h5 and Black keeps the advantage in a sharp position.
+
+==Notable games==
+Otto M. Tennison vs. {{chessgloss|NN}}, New Orleans 1891: <br />'''1. Nf3 d5 2. e4 dxe4 3. Ng5 f5 4. Bc4 Nh6 5. Nxh7 Rxh7 6. Qh5+ Kd7 7. Qg6 Rh8 8. Be6+ Kc6 9. Bxc8+ Qd6 10. Qe8+ Kb6 11. Qa4''' If 11...Qc6, then 12.Qb3+ Ka6 13.Nc3 any 14.Bxb7+; if 11...e6, then 12.a3 etc. (Tennison) '''{{chessAN|1–0}}'''
+
+==See also==
+* [[List of chess gambits]]
+
+==References==
+{{Reflist|35em}}
+
+'''Bibliography'''
+* {{cite web |last=Bekemann |first=Uwe |date=2016 |url=https://books.google.com/books?id=-YTVjwEACAAJ |title=Better late than never – The Tennison Gambit |publisher=Schachverlag Ullrich |isbn=978-3-95920966-3 }}
+* {{cite web |last=Lutes |first=John |date=2002 |url=https://books.google.com/books?id=x7fOsJ5dW-4C |title=Tennison Gambit |publisher=Chess Enterprises |isbn=978-0-945470-55-7 }}
+
+{{Chess|sp=us|state=collapsed}}
+
+[[Category:18th century in chess]]
+[[Category:1854 in chess]]
+[[Category:1854 introductions]]
+[[Category:Chess openings]]

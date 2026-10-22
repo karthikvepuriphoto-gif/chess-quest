@@ -1,0 +1,97 @@
+Albin Countergambit, Lasker Trap
+{{Short description|Chess opening trap}}
+{{Chess diagram
+ |floatright
+ |
+ |rd|nd|bd|qd|kd|  |nd|rd
+ |pd|pd|pd|  |  |pd|pd|pd
+ |  |  |  |  |  |  |  |  
+ |  |  |  |  |pl|  |  |  
+ |  |bd|pl|  |  |  |  |  
+ |  |  |  |  |pd|  |  |  
+ |pl|pl|  |bl|  |pl|pl|pl
+ |rl|nl|  |ql|kl|bl|nl|rl
+ |Position after 5...dxe3, setting the trap
+}}
+
+The '''Lasker Trap''' is a [[chess opening]] [[Chess trap|trap]] in the [[Albin Countergambit]]. It is named after [[Emanuel Lasker]], although it was first noted by [[Serafino Dubois]].<ref>{{Harv|Hooper|Whyld|1996|p=219}}</ref>{{efn|{{Harvnb|Hooper|Whyld|1996}} say that Dubois pointed out the trap in 1872 (p. 219).  Although they do not specify where Dubois published the trap, it could refer to the three-volume work on the openings that Dubois published from 1868 to 1873 (p.116).  Elsewhere they state that the Albin Countergambit was not introduced until 1881 (p. 6), which seems to be a contradiction.  It is not clear if the year of discovery was 1882 instead of 1872, or if 1881 was the tournament introduction of an opening that had been published in 1872 or earlier.}} It is unusual in that it features an [[Promotion (chess)#Underpromotion|underpromotion]] as early as the seventh move.
+{{AN chess|pos=toc}}
+
+==Analysis==
+'''1. d4 d5 2. c4'''
+:The [[Queen's Gambit]].
+
+'''2... e5 3. dxe5 d4'''
+:The Albin Countergambit. The black pawn on d4 is stronger than it appears.
+
+'''4. e3{{chesspunc|?}}'''
+:Careless. Usual and better is 4.Nf3.
+
+'''4... Bb4+ 5. Bd2 dxe3{{chesspunc|!}}''' (see diagram)
+:Now White's best option is to accept [[doubled pawns]] with 6.fxe3, which the ''[[Encyclopaedia of Chess Openings]]'' gives as the best move. Black gets a slight advantage, but White has avoided the worst and can defend.
+
+'''6. Bxb4{{chesspunc|??}}'''
+:[[Blunder (chess)|Blundering]] into the Lasker Trap.
+
+'''6... exf2+'''
+:Now 7.Kxf2 would lose the queen to 7...Qxd1, so White must play 7.Ke2.
+
+{{Chess diagram
+ |floatright
+ |
+ |rd|nd|bd|qd|kd|  |nd|rd
+ |pd|pd|pd|  |  |pd|pd|pd
+ |  |  |  |  |  |  |  |  
+ |  |  |  |  |pl|  |  |  
+ |  |bl|pl|  |  |  |  |  
+ |  |  |  |  |  |  |  |  
+ |pl|pl|  |  |kl|  |pl|pl
+ |rl|nl|  |ql|  |bl|nd|rl
+ |Position after 7...fxg1{{=}}N+!
+}}
+'''7. Ke2 fxg1=N+!''' (diagram)
+:Promotion to a knight is the key to the trap. (If instead 7...fxg1=Q, then 8.Qxd8+ Kxd8 9.Rxg1 is okay for White.) Now 8.Rxg1 Bg4+ [[Skewer (chess)|skewers]] White's queen, so the king must move again.
+
+'''8. Ke1 Qh4+ 9. Kd2'''
+:The alternative, 9.g3, loses the h1-rook to the [[Fork (chess)|fork]] 9...Qe4+.
+
+'''9... Nc6'''
+:White is hopelessly lost. After 10.Bc3, 10...Bg4 followed by 11...0-0-0+ is {{chessgloss|crush|crushing}}.
+{{clear}}
+
+==Alternate line==
+In an 1899 {{chessgloss|consultation game}} in Moscow that involved Blumenfeld, Boyarkow, and Falk playing as White against Lasker, the players played the Lasker Trap line up through Black's fifth move. White responded to 5...dxe3 with 6.Qa4+?, but Black wins after this move also. The game continued 6...Nc6 7.Bxb4 Qh4 8.Ne2 Qxf2+ 9.Kd1 Bg4 10.Nc3 0-0-0+ 11.Bd6 cxd6 12.e6 fxe6 13.Kc1 Nf6 14.b4 d5 15.b5 Ne5 16.cxd5 Nxd5 17.Qc2 Nb4 18.Nd1+ Nxc2 19.Nxf2 Rd2 {{chessAN|0–1}} (White [[Rules of chess#Resigning|resigned]]).<ref>{{cite web |url=https://www.chessgames.com/perl/chessgame?gid=1380336 |title=Blumenfeld/Boyarkow/Falk vs. Emanuel Lasker, Moscow 1899 |website=[[Chessgames.com]] |access-date=2008-01-24 }}</ref>
+
+==See also==
+*[[List of chess traps]]
+
+==Notes==
+{{notelist|notes=}}
+
+==References==
+{{reflist|30em}}
+
+'''Bibliography'''
+*{{cite book
+ |last=Burgess
+ |first=Graham 
+ |title=The Mammoth Book of Chess
+ |publisher=Carroll & Graf
+ |year=2000
+ |isbn=0-7867-0725-9}}
+*{{cite book
+ |last1=Hooper 
+ |first1=David  
+ |authorlink1=David Vincent Hooper
+ |last2=Whyld 
+ |first2=Kenneth 
+ |authorlink2=Kenneth Whyld
+ |title=[[The Oxford Companion to Chess]]
+ |publisher=[[Oxford University Press]]
+ |year=1996
+ |edition=2nd
+ |orig-date=First pub. 1992
+ |isbn=0-19-280049-3 }}
+
+[[Category:Chess traps]]
+[[Category:1899 in chess]]

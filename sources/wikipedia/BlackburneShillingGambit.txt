@@ -1,0 +1,56 @@
+Blackburne Shilling Gambit
+{{Infobox chess opening
+|openingname = Blackburne Shilling Gambit
+|image =
+{{Chess diagram||
+|rd|  |bd|qd|kd|bd|nd|rd
+|pd|pd|pd|pd|  |pd|pd|pd
+|  |  |  |  |  |  |  |  
+|  |  |  |  |pd|  |  |  
+|  |  |bl|nd|pl|  |  |  
+|  |  |  |  |  |nl|  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|ql|kl|  |  |rl
+}}
+|moves = 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nd4
+|ECO = C50
+|birth = [[Wilhelm Steinitz]], ''The Modern Chess Instructor'', Part II, 1895
+|nameorigin = [[Legend]] on [[Joseph Henry Blackburne|Blackburne]] (see text)
+|parentopening = [[Italian Game]]
+|AKA = Kostić Gambit <br />Shilling Gambit 
+}}
+
+The '''Blackburne Shilling Gambit''' is the name facetiously given to a dubious [[chess opening]], derived from an offshoot of the [[Italian Game]], that begins:
+
+:1. [[b:Chess Opening Theory/1. e4|e4]] [[b:Chess Opening Theory/1. e4/1...e5|e5]]
+:2. [[b:Chess Opening Theory/1. e4/1...e5/2. Nf3|Nf3]] [[b:Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6|Nc6]]
+:3. [[b:Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4|Bc4]] [[b:Chess Opening Theory/1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nd4|Nd4]]{{chesspunc|?!}}
+
+It is also sometimes referred to as the '''Kostić Gambit''' after the Serbian [[grandmaster (chess)|grandmaster]] [[Borislav Kostić]], who played it in the early 20th century.<ref name="BillWall">[https://web.archive.org/web/20041212010630/http://www.geocities.com/SiliconValley/Lab/7378/shilling.htm Bill Wall (2005), The Blackburne Shilling Gambit]</ref>
+{{AN chess|pos=toc}}
+
+==History==
+[[Wilhelm Steinitz]] made the first known mention of this line, noting it in 1895 in the Addenda to his ''Modern Chess Instructor'', Part II.<ref name="Steinitzp.63">[[Wilhelm Steinitz]], ''The Modern Chess Instructor'', Edition Olms Zürich, 1990 (reprint), p. 63 of Part II. {{ISBN|3-283-00111-1}}.</ref> The earliest game with the opening on [[chessgames.com]], [[John Dunlop (chess player)|Dunlop]]–Hicks, [[New Zealand Chess Championship|New Zealand Championship]], dates from 1911.<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1320024 |title=John Boyd Dunlop vs. E. Hicks, NZL-ch (1911), Timaru |website=[[Chessgames.com]] }}</ref> Another early game, mentioned by Bill Wall, is Muhlock–Kostić, Cologne, 1912.<ref name="BillWall"/><ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1243016 |title=Muhlock vs. Borislav Kostić, Koln (1911), Cologne GER |website=[[Chessgames.com]] }}</ref>
+
+The {{chessgloss|trap}} beginning 4.Nxe5{{chesspunc|?}} "continues to catch victims, including two in successive rounds at Blackpool 1987".<ref name=H&W_1996 />
+
+==Analysis==
+Black's third move is a weak, time-wasting move. Steinitz recommended 4.0-0 or 4.Nxd4 in response.<ref name="Steinitzp.63"/> [[International Master]] [[Jeremy Silman]] writes that White has an advantage after 4.0-0 ([[Paul Keres]] gives 4.0-0 d6 5.Nxd4 exd4 6.c3 "with the better position".<ref name=H&B_1977 />), 4.c3, or 4.Nc3. He recommends as best 4.Nxd4{{chesspunc|!}} exd4 5.c3 d5 6.exd5 Qe7+ 7.Kf1 {{chesspunc|+/{{=}}}}.<ref name="Silman2004">{{Cite web |url=http://www.jeremysilman.com/chess_opng_anlys/040801_two_wild_black_systems.html |title=Jeremy Silman (2004), Two Wild Black Systems |access-date=2007-05-15 |archive-url=https://web.archive.org/web/20090807070936/http://www.jeremysilman.com/chess_opng_anlys/040801_two_wild_black_systems.html |archive-date=2009-08-07 |url-status=dead }}</ref> If 5...dxc3, White has the [[Initiative (chess)|initiative]] in the {{chessgloss|center}} after 6.Nxc3 d6 7.d4 {{chesspunc|+/−}}; if 5...Bc5{{chesspunc|?}}, Black loses a pawn to 6.Bxf7+ Kxf7 7.Qh5+ ([[Wolfgang Unzicker]]).<ref name="H&B_1977">{{cite book |last1=Harding |first1=Tim |author-link1=Tim Harding (chess player) |last2=Botterill |first2=G. S. |author-link2=George Botterill |title=The Italian Game |publisher=[[Anova Books|B.T. Batsford Ltd]] |year=1977 |page=128 |isbn=0-7134-3261-6 }}</ref>
+
+The only virtue of 3...Nd4 is that it sets a [[Trap (chess)|trap]] that has ensnared many players. After the natural 4.Nxe5?, Black wins {{chessgloss|material}} with 4...Qg5! Now the obvious 5.Nxf7{{chesspunc|??}} loses to 5...Qxg2, for example 6.Rf1 Qxe4+ 7.Be2 Nf3{{chessAN|#}}, a [[smothered mate]]. This trap is what gives the line its name; the great English [[Chess master|master]] [[Joseph Henry Blackburne]] reputedly used it to win one [[Shilling (British coin)|shilling]] per game from café visitors.<ref name="H&W_1996">{{cite book |last1=Hooper |first1=David |author-link1=David Vincent Hooper |last2=Whyld |first2=Kenneth |author-link2=Kenneth Whyld |title=[[The Oxford Companion to Chess]] |publisher=[[Oxford University Press]] |edition=2nd |year=1996 |orig-year=First pub. 1992 |page=43 |contribution=Blackburne Shilling Gambit |isbn=0-19-280049-3 }}</ref> Wall has questioned this, however, stating that there are no recorded games of Blackburne playing this line.<ref name="BillWall"/>
+
+The opening is often considered to not be a true [[gambit]], since White cannot take the [[pawn (chess)|pawn]] on e5 without losing material; however, after 4.Nxe5 Qg5, White can maintain a {{chessgloss|playable}} game with 5.Bxf7+! Steinitz wrote that this move, "followed by [[castling]], is now White's best chance and in some measure a promising one, considering that he has two Pawns and the attack for the piece".<ref name="Steinitzp.63"/> G. Chandler–{{chessgloss|NN}}, Stockbridge 1983, continued 5...Ke7 6.0-0 Qxe5 7.Bxg8 Rxg8 8.c3 Nc6 (Silman analyzes 8...Ne6 9.d4 Qf6 10.f4 when "with two pawns and an attack for the sacrificed piece, White’s compensation isn’t in doubt".<ref name=Silman2004 />) 9.d4 ({{chesspunc|{{=}}/∞}} Keres<ref>{{cite book |editor-last=Matanović |editor-first=Aleksandar |editor-link=Aleksandar Matanović |title=[[Encyclopaedia of Chess Openings]] |publisher=[[Chess Informant]] |location=Yugoslavia |volume=C |edition=2nd |page=242, n. 1 |year=1981 }}</ref>) Qa5? 10.d5 Ne5? 11.Qh5! Nf7? 12.d6+! {{chessAN|1–0}} (in light of 13.Qxa5). White's two pawns and rolling pawn center, combined with Black's misplaced king, give White strong compensation for the sacrificed bishop.
+
+[[Graham Burgess]] writes that 3...Nd4 is also known as the "Oh my God!" trap, as for full effect, Black is supposed to make this exclamation, pretending to have accidentally blundered the e-pawn. Burgess condemns this behavior as unethical, and notes that the trap, if avoided, leaves White with a large advantage.<ref>Graham Burgess, ''The Mammoth Book of Chess'', Carroll & Graf, 1997, pp. 122–23. {{ISBN|0-7867-0725-9}}.</ref>
+
+==See also==
+* [[List of chess openings]]
+* [[List of chess openings named after people]]
+
+==References==
+{{wikibooks|Chess Opening Theory|1. e4/1...e5/2. Nf3/2...Nc6/3. Bc4/3...Nd4|Blackburne Shilling Gambit}}
+{{reflist|1}}
+
+[[Category:Chess openings]]
+[[Category:Chess traps]]
+[[Category:1912 in chess]]

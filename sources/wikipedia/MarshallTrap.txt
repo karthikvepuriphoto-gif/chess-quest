@@ -1,0 +1,53 @@
+Petrov's Defence, Marshall Trap
+{{Short description|Chess opening trap}}
+{{Chess diagram
+| floatright
+|
+|rd|nd|  |qd|  |rd|kd|
+|pd|pd|pd|  |  |  |pd|pd
+|  |  |  |bd|  |  |  |
+|  |  |  |pl|  |pd|  |
+|  |  |  |pl|nd|  |bd|
+|  |  |  |bl|  |nl|  |
+|pl|pl|  |  |  |pl|pl|pl
+|rl|nl|bl|ql|rl|  |kl|
+|Position after 10.Re1?; Black wins with 10...Bxh2+!
+}}
+The '''Marshall Trap''' is a [[chess opening]]  in [[Petrov's Defence]] named after [[Frank Marshall (chess player)|Frank Marshall]].
+{{AN chess|pos=toc}}
+
+==The trap==
+'''1. e4 e5 2. Nf3 Nf6'''
+:The trap begins with Black playing Petrov's Defence.
+
+'''3. Nxe5 d6 4. Nf3 Nxe4 5. d4 d5 6. Bd3 Bd6 7. 0-0 0-0 8. c4 Bg4 9. cxd5 f5 10. Re1?''' (see diagram)
+:White should play 10.Nc3 instead.
+
+'''10... Bxh2+!'''
+:An unexpected blow.
+
+'''11. Kxh2'''
+:If 11.Nxh2, then 11...Bxd1.
+
+'''11...Nxf2'''
+:Black [[fork (chess)|forks]] the white [[queen (chess)|queen]] and [[bishop (chess)|bishop]], forcing the queen to move.
+
+'''12. Qe2 Nxd3 13. Qxd3 Bxf3 14. Qxf3 Qh4+'''
+:Followed by 15...Qxe1 winning the e1-[[rook (chess)|rook]]. Black has a winning material advantage.
+
+==References==
+*{{cite book| contribution = Marshall Trap
+ | title = [[The Oxford Companion to Chess]]
+ | last1 = Hooper | first1 = David
+ | last2 = Whyld | first2 = Kenneth
+ | author1-link = David Vincent Hooper
+ | author2-link = Kenneth Whyld
+ | year = 1996
+ | edition = 2nd
+ | orig-year = First pub. 1992
+ | publisher = [[Oxford University Press]]
+ | page = 249
+ | isbn = 0-19-280049-3
+}}
+
+[[Category:Chess traps]]

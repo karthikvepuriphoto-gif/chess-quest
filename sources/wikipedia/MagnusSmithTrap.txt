@@ -1,0 +1,43 @@
+Sicilian Defence, Magnus Smith Trap
+{{Chess diagram
+| floatright
+| 
+|rd|  |bd|qd|kd|bd|  |rd
+|pd|  |  |  |pd|pd|  |pd
+|  |  |pd|pd|  |nd|pd|  
+|  |  |  |  |pl|  |  |  
+|  |  |bl|  |  |  |  |  
+|  |  |nl|  |  |  |  |  
+|pl|pl|pl|  |  |pl|pl|pl
+|rl|  |bl|ql|kl|  |  |rl
+|Position after 8.e5!
+}}
+
+The '''Magnus Smith Trap''' is a [[chess opening]] [[Chess trap|trap]] in the [[Sicilian Defence]], named after three-time [[Canadian Chess Championship|Canadian chess champion]] [[Magnus Smith]] (1869–1934). In an article titled "The 'Magnus Smith Trap{{' "}}<ref>{{cite web |url=https://www.chesshistory.com/winter/extra/magnussmith.html |title=The 'Magnus Smith Trap' |last=Winter |first=Edward |website=Chesshistory.com }}</ref> published in his ''Chess Notes'' column (hosted at the Chess History Center), chess historian Edward Winter wrote: {{quote|We believe that 'Magnus Smith Trap' is a misnomer, although in the Sicilian Defence there is a 'Magnus Smith Variation' (a very rare instance of a player's forename and surname being used jointly in openings terminology).|author=|title=|source=}} 
+{{AN chess|pos=toc}}
+
+==The trap==
+'''1. e4 c5 2. Nf3 d6 3. d4 cxd4 4. Nxd4 Nf6 5. Nc3 Nc6 6. Bc4'''
+:This is the [[Sicilian Defence#Classical Variation|Sozin Variation]] (or Fischer–Sozin Attack) of the [[Sicilian Defense]]. A common response is 6...e6, to make White's [[bishop (chess)|bishop]] on c4 "bite on granite".
+
+'''6... g6{{chesspunc|?!}}'''
+:Black falls into the trap.
+
+'''7. Nxc6 bxc6 8. e5{{chesspunc|!}}''' (diagram)
+:Black is in a bad way. After 8...Nh5{{chesspunc|?}}, [[Bobby Fischer]] gives 9.Qf3! e6 (9...d5 10.Nxd5!) 10.g4 Ng7 11.Ne4 Qa5+ (11...d5 12.Nf6+ Ke7 13.Qa3+) 12.Bd2 Qxe5 13.Bc3 and Black's [[Queen (chess)|queen]] is trapped.<ref>{{cite book |last=Fischer |first=Bobby |author-link=Bobby Fischer |title=[[My 60 Memorable Games]] |publisher=[[Simon & Schuster|Simon and Schuster]] |year=1969 |page=[https://archive.org/details/my60memorablegam00fisc/page/87 87] |chapter=§13 Fischer–Gligoric, Candidates' Tournament 1959 |isbn=0-671-21483-7 }}</ref> Preferable alternatives are 8...Ng4 9.e6 f5, and Black eventually managed to [[Draw (chess)|draw]] in [[Carl Schlechter|Schlechter]]–[[Emanuel Lasker|Lasker]], World Championship (1910), rd. 7,<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1121153 |title=Carl Schlechter vs. Emanuel Lasker, World Championship (7), Berlin 1910 |website=[[Chessgames.com]] }}</ref> and 8...d5 9.exf6 dxc4 10.Qxd8+ Kxd8 11.Bg5 Be6 12.0-0-0+ Ke8, and Black ultimately even won in [[Leon Rosen|Rosen]]–[[Amos Burn|Burn]], Paris 1900.<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1000020 |title=Leon Rosen vs. Amos Burn, Paris 1900 |website=[[Chessgames.com]] }}</ref>
+
+:The move Black actually chooses leads to instant disaster.
+
+'''8... dxe5{{chesspunc|??}}''' 
+:"Correct is 8...Ng4." — Fischer. White was clearly better in [[Alexey Suetin|Suetin]]–[[Sergey Makarichev|Makarichev]], Moscow 1983, after [8...Ng4] 9.Bf4 Bh6 ([[Gennadi Sosonko|Sosonko]]; if 9...Qb6 then 10.Qf3{{chesspunc|+/−}}<ref>Matanović (1984), p. 302, n. 3</ref>) 10.Bxh6 Nxh6 11.Qd2 Nf5 12.exd6 Nxd6 (if 12...Qxd6 then 13.0-0-0+/−; if 12...exd6 then 13.0-0-0 0-0 14.g4! Ne7 15.Qxd6 Qxd6 16.Rxd6 Bxg4 17.Re1!+/− Makarichev<ref>Matanović (1984), p. 302, n. 4</ref>) 13.0-0-0 Qc7 (if 13...Bb7{{chesspunc|!?}} then 14.Qf4 intending Ne4; Makarichev<ref>Matanović (1984), p. 302, n. 5</ref>) 14.Qf4 0-0 15.Ne4 ([[John Nunn|Nunn]]).<ref>{{cite book |editor-last=Matanović |editor-first=Aleksandar |editor-link=Aleksandar Matanović |title=[[Encyclopaedia of Chess Openings]] |publisher=[[Chess Informant]] |location=Yugoslavia |volume=B |edition=3rd |year=1997 |page=322, n. 1 |isbn=86-7297-032-2}}</ref> 
+
+'''9. Bxf7+ {{chesspunc|+−}}'''
+:White wins Black's queen after 9...Kxf7 10.Qxd8.
+
+==References==
+{{reflist|30em}}
+
+'''Bibliography'''
+*{{cite book |editor-last=Matanović |editor-first=Aleksandar |editor-link=Aleksandar Matanović |title=[[Encyclopaedia of Chess Openings]] |publisher=[[Chess Informant]] |location=Yugoslavia |volume=B |edition=2nd |year=1984 }}
+
+[[Category:Chess traps]]

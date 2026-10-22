@@ -1,0 +1,53 @@
+Ruy Lopez, Noah's Ark Trap
+{{short description|Chess opening trap}}
+The '''Noah's Ark Trap''' is a family of [[Chess trap|traps]] in the [[Ruy Lopez]] [[chess opening]] in which a white [[bishop (chess)|bishop]] is trapped on the b3-square by black [[pawn (chess)|pawns]].<ref>{{cite book |last1=Hooper |first1=David |authorlink1=David Vincent Hooper |last2=Whyld |first2=Kenneth |authorlink2=Kenneth Whyld |title=[[The Oxford Companion to Chess]] |publisher=[[Oxford University Press]] |edition=2nd |year=1996 |orig-date=First pub. 1992 |contribution=Noah's Ark Trap |page=274 |isbn=0-19-280049-3 }}</ref>
+
+The origin of the name is uncertain. The shape of the black pawns on a6, b5, and c4 may resemble an ark, or the name may suggest that the trap is "[[wiktionary:antediluvian|as old as Noah's Ark]]".<ref name="Brace">{{citation|last=Brace|first=Edward R.|year=1977|title=An Illustrated Dictionary of Chess|publisher=Hamlyn Publishing Group|isbn=1-55521-394-4| page=201}}</ref>
+{{AN chess|pos=toc}}
+
+==The trap==
+{{Chess diagram
+| floatright
+| Steiner vs. Capablanca, 1929
+|rd|  |  |qd|kd|bd|nd|rd
+|  |  |  |bd|  |pd|pd|pd
+|pd|  |  |pd|  |  |  |  
+|  |pd|  |ql|  |  |  |  
+|  |  |pd|  |pl|  |  |  
+|  |bl|  |  |  |  |  |  
+|pl|pl|pl|  |  |pl|pl|pl
+|rl|nl|bl|  |kl|  |  |rl
+|Position after 11...c4. The white king bishop is trapped.
+}}
+Chess masters have occasionally fallen victim to this trap. An example is a game between [[Endre Steiner]] and [[José Capablanca]] at the Budapest tournament in 1929:<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1257934 |title=Steiner vs. Capablanca, Budapest 1929 |website=[[Chessgames.com]] }}</ref>
+:'''1. e4 e5 2. Nf3 Nc6 3. Bb5 a6 4. Ba4 d6 5. d4'''
+Better moves for White are 5.c3, 5.Bxc6+, and 5.[[Castling|0-0]].
+
+:'''5... b5 6. Bb3 Nxd4 7. Nxd4 exd4 8. Qxd4{{chesspunc|??}}'''
+[[Alexander Alekhine]] recommended this move in the tournament book for [[New York 1924 chess tournament|New York 1924]] as a means for White to [[draw (chess)|draw]], but it is a mistake that loses {{chessgloss|material}}. White should instead play 8.Bd5 or try a [[gambit]] with 8.c3.
+
+:'''8... c5 9. Qd5 Be6 10. Qc6+ Bd7 11. Qd5 c4''' (see diagram)
+The white {{chessgloss|king bishop}} is trapped. White [[Rules of chess#Resigning|resigned]] after 32 moves.
+
+===In the Sicilian===
+A variation of this trap can occur in the [[Sicilian Defence]] after the moves '''1. e4 c5 2. Nf3 Nc6 3. Bb5''' (the [[Sicilian Defence#Rossolimo Variation|Rossolimo Variation]]) '''3... a6 4. Ba4??''' (4.Bxc6 is necessary and is the point of 3.Bb5) '''4... b5 5. Bb3 c4''' (see diagram). The bishop is similarly trapped.
+{{Chess diagram 
+|floatleft
+| 
+|rd|  |bd|qd|kd|bd|nd|rd
+|  |  |  |pd|pd|pd|pd|pd
+|pd|  |nd|  |  |  |  |  
+|  |pd|  |  |  |  |  |  
+|  |  |pd|  |pl|  |  |  
+|  |bl|  |  |  |nl|  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|ql|kl|  |  |rl
+|Position after 4.Ba4?? b5 5.Bb3 c4 in the Rossolimo Variation of the Sicilian Defence
+}}
+{{clear left}}
+
+==References==
+{{reflist}}
+
+[[Category:Chess traps]]
+[[Category:Noah's Ark in popular culture]]

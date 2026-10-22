@@ -1,0 +1,53 @@
+Queen's Gambit Declined, Rubinstein Trap
+{{Chess diagram
+| floatright
+| 
+|rd|  |bd|qd|rd|  |kd|  
+|  |pd|  |nd|bd|  |pd|pd
+|pd|  |pd|  |  |  |  |  
+|  |  |  |pd|  |pd|  |  
+|  |  |  |pl|nd|bl|  |  
+|  |  |nl|bl|pl|nl|  |  
+|pl|pl|ql|  |  |pl|pl|pl
+|  |  |rl|  |  |rl|kl|  
+|White wins a pawn with 13.Nxd5.
+}}
+
+The '''Rubinstein Trap''' is a [[chess opening]] [[Chess trap|trap]] in the [[Queen's Gambit Declined|Queen's Gambit Declined, Orthodox Defense]].
+Black loses a pawn after Nxd5 due to the threat of their [[queen (chess)|queen]] being trapped on the {{chessgloss|back rank}} by White's Bc7. 
+{{AN chess|pos=toc}}
+
+==History==
+The trap takes its name from [[Akiba Rubinstein]], who had the misfortune of falling into it twice, in the games [[Max Euwe|Euwe]]&ndash;Rubinstein, [[Bad Kissingen]] 1928, and [[Alexander Alekhine|Alekhine]]&ndash;Rubinstein, [[San Remo 1930 chess tournament|San Remo 1930]]. Rubinstein was not the first to fall victim to the trap; the first recorded game featuring the trap is [[Amos Burn]]&ndash;[[Heinrich Wolf]], [[Ostend]] 1905.
+
+Alekhine vs. Rubinstein, San Remo 1930<ref>{{cite web |url=http://www.chessgames.com/perl/chessgame?gid=1007968 |title=Alexander Alekhine vs. Akiba Rubinstein, San Remo (1930), rd. 14 |website=[[Chessgames.com]] }}</ref>
+
+'''1. d4 d5 2. Nf3 Nf6 3. c4 e6'''
+:The Queen's Gambit Declined, Orthodox Defense.
+
+'''4. Bg5 Nbd7 5. e3 Be7 6. Nc3 0-0 7. Rc1 Re8 8. Qc2 a6 9. cxd5 exd5 10. Bd3 c6 11. 0-0 Ne4 12. Bf4 f5{{chesspunc|?}}''' (see diagram)
+:Black falls into the trap.
+
+'''13. Nxd5'''
+:White wins a pawn since 13...cxd5{{chesspunc|??}} loses to 14.Bc7, trapping Black's queen.
+
+==References==
+{{reflist}}
+
+'''Bibliography'''
+*{{cite book
+ |author=Winter, Edward
+ |author-link=Edward Winter (chess historian)
+ |title=A Chess Omnibus
+ |publisher=Russell Enterprises
+ |year=2003
+ |isbn=1-888690-17-8}}
+*{{cite web
+ |url=http://www.chesshistory.com/winter/extra/rubinstein.html
+ |author=Winter, Edward
+ |title=The Rubinstein Trap
+ |access-date=2008-11-23
+ |publisher=chesshistory.com}}
+
+[[Category:Chess traps]]
+[[Category:1905 in chess]]

@@ -1,0 +1,80 @@
+Bogo-Indian Defence, Monticelli Trap
+{{Infobox chess opening
+| openingname = Monticelli Trap
+| image       = {{Chess diagram||
+|rd|nd|  |qd|  |rd|kd|  
+|pd|bd|pd|pd|  |pd|pd|pd
+|  |pd|  |  |pd|  |  |  
+|  |  |  |  |  |  |nl|  
+|  |  |pl|pl|  |  |  |  
+|  |  |nd|  |  |  |pl|  
+|pl|pl|ql|  |pl|pl|bl|pl
+|rl|  |  |  |kl|  |  |rl
+}}
+| moves         = 1.d4 Nf6 2.c4 e6 3.Nf3 Bb4+ 4.Bd2 Bxd2+ 5.Qxd2 b6 6.g3 Bb7 7.Bg2 O-O 8.Nc3 Ne4 9.Qc2 Nxc3 10.Ng5
+| ECO           = E11
+| birth         = Monticelli vs. [[Ladislav Prokeš|Prokeš]], [[Budapest]] 1926
+| nameorigin    = [[Mario Monticelli]]
+| parentopening = [[Bogo-Indian Defence|Bogo–Indian Defense]]
+| AKA           =
+}}
+
+In [[chess]], the '''Monticelli Trap''' is a [[combination (chess)|combination]]  in the [[Bogo-Indian Defence|Bogo–Indian Defence]], named for [[Italy|Italian]] champion [[Mario Monticelli]] from the game Monticelli versus [[Ladislav Prokeš|Prokeš]], [[Budapest]] 1926.<ref>[http://www.chessgames.com/perl/chessgame?gid=1243040 Monticelli vs. Prokeš, 1926]</ref> Although it is called a  [[:Category:Chess traps|trap]] because White wins the [[Glossary of chess#Exchange|exchange]], Black does obtain some [[Glossary of chess#Compensation|compensation]].
+
+The trap begins with the moves:
+:1. [[b:Chess Opening Theory/1. d4|d4]] [[b:Chess Opening Theory/1. d4/1...Nf6|Nf6]]
+:2. [[b:Chess Opening Theory/1. d4/1...Nf6/2. c4|c4]] [[b:Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6|e6]]
+:3. [[b:Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nf3|Nf3]] [[b:Chess Opening Theory/1. d4/1...Nf6/2. c4/2...e6/3. Nf3/3...Bb4|Bb4+]]
+
+::Black plays the Bogo–Indian Defence. 
+:4. Bd2 Bxd2+ 
+:5. Qxd2 b6 
+:6. g3 Bb7 
+:7. Bg2 0-0 
+:8. Nc3 Ne4 
+:9. Qc2 Nxc3 
+:10. Ng5! (see diagram)
+{{algebraic notation|pos=toc}}
+
+==Discussion==
+White threatens [[Checkmate|mate]] with 11.Qxh7# as well as 11.Bxb7 winning a bishop and a rook. After either 10...Ne4 11.Bxe4 or 10...Qxg5 11.Bxb7, Black loses the exchange, but obtains compensation in the form of one or more pawns and possibly a weakened white king. It is unclear if the position is a forced win for White.
+
+Former world champion [[José Raúl Capablanca]] allowed 10.Ng5 twice in consecutive games as Black against [[Max Euwe]] in [[Amsterdam]], 1931, drawing both times. The second game continued:<ref>[http://www.chessgames.com/perl/chessgame?gid=1042353 Euwe vs. Capablanca, 1931]</ref>
+
+:10...Ne4 11.Bxe4 Bxe4 12.Qxe4 Qxg5 13.Qxa8 Nc6 14.Qb7 Nxd4 15.Rd1 c5 16.e3 Nc2+ 17.Kd2 Qf5 18.Qg2 Nb4 19.e4 Qf6 20.Kc1 Nxa2+ 21.Kb1 Nb4 22.Rxd7 Nc6 23.f4 e5 24.Rhd1 Nd4 25.Rxa7 exf4 26.gxf4 Qxf4 27.Re1 Nf3 28.Re2 Nd4 29.Re1 ½–½
+
+The line has been played several times over the years at the highest levels, including Portisch–Andersson 1983,<ref>[http://www.chessgames.com/perl/chessgame?gid=1020226 Portisch vs. Andersson, 1983]</ref> which ended in a draw, and Aronian–Postny 2005,<ref>[http://www.chessgames.com/perl/chessgame?gid=1333237 Aronian vs. Postny, 2005]</ref> which White won. The offer of the exchange has in fact been refused by White in grandmaster games (either by 10.Qxc3 or 10.Ng5 Ne4 11.Bxe4 Bxe4 12.Nxe4<ref>[http://www.chessgames.com/perl/chessgame?gid=1372169 Psakhis vs. Marin, 2005]</ref>).
+
+==See also==
+* [[List of chess openings named after people]]
+
+==References==
+'''Notes'''
+{{reflist|35em}}
+
+'''Bibliography'''
+{{refbegin}}
+*{{citation 
+ |last=Brace 
+ |first=Edward R. 
+ |year=1977 
+ |title=An Illustrated Dictionary of Chess 
+ |publisher=Hamlyn Publishing Group 
+ |isbn=1-55521-394-4 
+ |pages=191}}
+*{{citation 
+ |last=Znosko-Borovsky 
+ |first=Eugene 
+ |authorlink=Eugene Znosko-Borovsky 
+ |title=The Art of Chess Combination 
+ |publisher=Dover 
+ |year=1977 
+ |isbn=0-486-20583-5 
+ |pages=[https://archive.org/details/artofchesscombin00euge/page/82 82] 
+ |url-access=registration 
+ |url=https://archive.org/details/artofchesscombin00euge/page/82 
+ }}
+{{refend}}
+
+[[Category:Chess traps]]
+[[Category:1926 in chess]]

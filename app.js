@@ -5,13 +5,15 @@ import { pieceSVG } from './pieces.js';
 import { analyze, warm } from './engine.js';
 import { OPEN } from './openings.js';
 import { PRINCIPLES } from './openings.src.mjs';
+import { FAST } from './fastwins.js';
+import { PATTERNS } from './fastwins.src.mjs';
 
 const $=s=>document.querySelector(s);const app=$('#app');
 const FILES='abcdefgh';const NAMES={p:'pawn',n:'knight',b:'bishop',r:'rook',q:'queen',k:'king'};const VAL={p:1,n:3,b:3,r:5,q:9,k:100};
 const SQS=[];for(let r=8;r>=1;r--)for(const f of FILES)SQS.push(f+r);
 // ---------- storage ----------
 const KEY='chessquest_v1';
-const S=Object.assign({stars:{},lessons:{},badges:{},wins:{},games:0,daily:{},path:{},settings:{read:false,sound:true,threats:true,coach:true,unsafe:false,coords:false},openings:{},quiz:{}},JSON.parse(localStorage.getItem(KEY)||'{}'));
+const S=Object.assign({fast:{},blunder:{},stars:{},lessons:{},badges:{},wins:{},games:0,daily:{},path:{},settings:{read:false,sound:true,threats:true,coach:true,unsafe:false,coords:false},openings:{},quiz:{}},JSON.parse(localStorage.getItem(KEY)||'{}'));
 S.settings=Object.assign({read:false,sound:true,threats:true,coach:true,unsafe:false,coords:false},S.settings);S.openings=S.openings||{};S.quiz=S.quiz||{};
 const save=()=>localStorage.setItem(KEY,JSON.stringify(S));
 // ---------- voice & sound ----------
@@ -22,7 +24,7 @@ let actx=null;function beep(kind){if(!S.settings.sound)return;try{actx=actx||new
 function confetti(){const c=$('#confetti'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,v:2+Math.random()*4,s:6+Math.random()*8,a:Math.random()*6,c:`hsl(${Math.random()*360},90%,60%)`}));let n=0;(function f(){x.clearRect(0,0,c.width,c.height);for(const p of P){p.y+=p.v;p.a+=.1;x.fillStyle=p.c;x.save();x.translate(p.x+Math.sin(p.a)*8,p.y);x.rotate(p.a);x.fillRect(-p.s/2,-p.s/4,p.s,p.s/2);x.restore()}if(++n<170)requestAnimationFrame(f);else x.clearRect(0,0,c.width,c.height)})()}
 function badge(id){if(S.badges[id])return;S.badges[id]=Date.now();save();const b=BADGES.find(b=>b.id===id);if(b)toast(`🏅 New badge: ${b.e} ${b.name}!`)}
 function toast(t){const d=document.createElement('div');d.className='card';d.style.cssText='position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:40;font-weight:bold;max-width:90vw';d.textContent=t;document.body.appendChild(d);speak(t);setTimeout(()=>d.remove(),2800)}
-const BADGES=[{id:'firstLesson',e:'📘',name:'First Lesson'},{id:'allLessons',e:'🎓',name:'Piece Master'},{id:'firstPuzzle',e:'🧩',name:'First Puzzle'},{id:'five',e:'🖐️',name:'5 Puzzles'},{id:'mate1',e:'⚡',name:'Mate-in-1 Champ'},{id:'famous',e:'🏛️',name:'Chess History Hero'},{id:'allPuzzles',e:'👑',name:'Puzzle King'},{id:'daily',e:'📅',name:'Daily Solver'},{id:'easy',e:'🐣',name:'Beat Easy Bot'},{id:'medium',e:'🦊',name:'Beat Medium Bot'},{id:'hard',e:'🦁',name:'Beat Hard Bot'},{id:'path',e:'🗺️',name:'Finished the Quest Path'},{id:'squares',e:'🔍',name:'Square Spotter'},{id:'notation',e:'✍️',name:'Notation Ninja'},{id:'explorer',e:'🧭',name:'Opening Explorer'}];
+const BADGES=[{id:'firstLesson',e:'📘',name:'First Lesson'},{id:'allLessons',e:'🎓',name:'Piece Master'},{id:'firstPuzzle',e:'🧩',name:'First Puzzle'},{id:'five',e:'🖐️',name:'5 Puzzles'},{id:'mate1',e:'⚡',name:'Mate-in-1 Champ'},{id:'famous',e:'🏛️',name:'Chess History Hero'},{id:'allPuzzles',e:'👑',name:'Puzzle King'},{id:'daily',e:'📅',name:'Daily Solver'},{id:'easy',e:'🐣',name:'Beat Easy Bot'},{id:'medium',e:'🦊',name:'Beat Medium Bot'},{id:'hard',e:'🦁',name:'Beat Hard Bot'},{id:'path',e:'🗺️',name:'Finished the Quest Path'},{id:'squares',e:'🔍',name:'Square Spotter'},{id:'notation',e:'✍️',name:'Notation Ninja'},{id:'explorer',e:'🧭',name:'Opening Explorer'},{id:'trapSpotter',e:'🪤',name:'Trap Spotter'},{id:'blunderBuster',e:'🔎',name:'Blunder Buster'},{id:'patternPro',e:'🧠',name:'Pattern Pro'}];
 // ---------- helpers ----------
 const opp=c=>c==='w'?'b':'w';
 const colorName=c=>c==='w'?'White':'Black';
@@ -41,8 +43,8 @@ class Board{
       if(o.hl&&o.hl[sq])cls.push(...o.hl[sq].split(' '));if(o.marks&&o.marks[sq])cls.push(...o.marks[sq].split(' '));
       h+=`<div class="${cls.join(' ')}" data-sq="${sq}">${pc?pieceSVG(pc.type,pc.color):''}${o.stars&&o.stars.includes(sq)?'<span class="star">⭐</span>':''}${S.settings.coords?`<span class="sqname">${sq}</span>`:''}${(this.orient==='w'?sq[1]==='1':sq[1]==='8')?`<span class="coord">${sq[0]}</span>`:''}${(this.orient==='w'?sq[0]==='a':sq[0]==='h')?`<span class="coordr">${sq[1]}</span>`:''}</div>`}
     this.b.innerHTML=h;
-    let a='<defs><marker id="ah" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#7b2ff7"/></marker></defs>';
-    for(const [f,t] of (o.arrows||[])){const [x1,y1]=this.xy(f),[x2,y2]=this.xy(t);const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;a+=`<line x1="${x1}" y1="${y1}" x2="${x2-dx/L*.35}" y2="${y2-dy/L*.35}" stroke="#7b2ff7" stroke-width=".16" stroke-linecap="round" opacity=".85" marker-end="url(#ah)"/>`}
+    let a='<defs>'+['7b2ff7','d6234a','2fb36b'].map(c=>`<marker id="ah${c}" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto"><path d="M0,0 L4,2 L0,4 Z" fill="#${c}"/></marker>`).join('')+'</defs>';
+    for(const [f,t,c] of (o.arrows||[])){const [x1,y1]=this.xy(f),[x2,y2]=this.xy(t);const dx=x2-x1,dy=y2-y1,L=Math.hypot(dx,dy)||1;a+=`<line x1="${x1}" y1="${y1}" x2="${x2-dx/L*.35}" y2="${y2-dy/L*.35}" stroke="${c||'#7b2ff7'}" stroke-width=".16" stroke-linecap="round" opacity=".85" marker-end="url(#ah${(c||'#7b2ff7').slice(1)})"/>`}
     this.svg.innerHTML=a;}
 }
 function legalHL(ch,sq){const hl={};for(const m of ch.moves({square:sq,verbose:true}))hl[m.to]=(m.captured||m.flags.includes('e'))?'cap':'hl';return hl}
@@ -101,6 +103,7 @@ SCREENS.home=()=>{const dp=dailyPuzzle();app.innerHTML=`<h1>♞ Chess Quest</h1>
 <div class="tile" data-go="coach"><span class="e">🦉</span><b>Move Coach</b><small>Which moves are good?</small></div>
 <div class="tile" data-go="notation"><span class="e">🔤</span><b>Board & Notation</b><small>Square names, e4, Nf3, O-O</small></div>
 <div class="tile" data-go="openings"><span class="e">📖</span><b>Openings</b><small>Italian, Sicilian & more</small></div>
+<div class="tile" data-go="fastwins"><span class="e">⚡</span><b>Fast Wins</b><small>Learn from bad moves</small></div>
 <div class="tile" data-go="badges"><span class="e">🏅</span><b>Badges</b><small>Your trophies</small></div>
 <div class="tile" data-go="parents"><span class="e">👪</span><b>Grown-ups</b><small>Settings & teaching tips</small></div>
 </div><p style="text-align:center;font-size:13px;opacity:.7">Chess Quest · <a href="CREDITS.md">credits & licenses</a></p>`;
@@ -363,6 +366,64 @@ SCREENS.opening=(id)=>{const O=[...OPEN.openings,...OPEN.traps].find(o=>o.id===i
     sel=pc&&pc.color===ch.turn()?sq:null;drawDrill()};
   showLearn()};
 
+// ---------- Fast Wins: learn from bad moves ----------
+const FW_GROUPS=[['mate','⚡ Shortest checkmates'],['trap','🪤 Classic opening traps'],['game','🏛️ Real quick games']];
+const sideName=c=>c==='w'?'White':'Black';
+const evalWords=s=>s<=-90000?'gets checkmated':s<=-800?'is losing badly (down about a queen or more)':s<=-450?'is losing (down about a rook)':s<=-250?'is in big trouble (down about a piece)':s<=-150?'is worse':s<150?'is about equal':'is doing well';
+const patChip=k=>`<span class="badge" style="font-size:14px;padding:3px 8px">${PATTERNS[k][0]} ${esc(PATTERNS[k][1])}</span>`;
+const fwLabel=f=>f.players?`${f.players} · ${f.year}${f.place?' · '+f.place:''}`:'';
+SCREENS.fastwins=()=>{const seen=FAST.filter(f=>S.fast[f.id]).length;
+  app.innerHTML=`<div class="top">${back()}<h2>⚡ Fast Wins</h2>${speakBtn('Fast wins. Learn from bad moves! Every game here is lost by one bad move. Watch for the red move, learn the pattern, and you will never fall for it.')}</div>
+  <div class="card msg">Every game here ends fast because of <b style="color:#d6234a">one bad move</b>. Step through, see the red move, learn the pattern, and see what should have been played. (${seen}/${FAST.length} studied)</div>
+  <div class="row"><button class="green" data-go="blunders">🔎 Spot the Blunder quiz</button><button class="orange" data-go="patterns">🧠 Pattern Guide</button></div>
+  ${FW_GROUPS.map(([g,t])=>`<div class="card"><h2>${t}</h2>${FAST.filter(f=>f.group===g).map(f=>`<div class="pz" data-f="${f.id}"><div><b>${esc(f.name)}</b> <small>(${Math.ceil(f.moves.length/2)} moves)</small><br><small>${esc(fwLabel(f))||f.pattern.map(k=>PATTERNS[k][0]+' '+PATTERNS[k][1]).join(' · ')}</small></div><span class="stars">${S.fast[f.id]?'✅':''}</span></div>`).join('')}</div>`).join('')}`;
+  app.querySelectorAll('[data-f]').forEach(t=>t.onclick=()=>go('fastwin',t.dataset.f))};
+SCREENS.fastwin=(id)=>{const F=FAST.find(f=>f.id===id);let k=0,showBetter=false;
+  const g=new Chess();const L=F.moves.map(m=>g.move(m));const winner=F.loser==='w'?'b':'w';
+  app.innerHTML=`<div class="top">${back('fastwins')}<h2>${esc(F.name)}</h2></div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side">
+  <div class="card"><div>${F.pattern.map(patChip).join(' ')}</div>${F.players?`<small><b>${esc(F.players)}</b>, ${esc(F.year)}${F.place?', '+esc(F.place):''}</small>`:''}${F.note?`<div class="msg" style="font-size:15px;margin-top:4px">ℹ️ ${esc(F.note)}</div>`:''}<small>Source: <a href="${F.src}" target="_blank" rel="noopener">${F.src.includes('wikipedia')?'Wikipedia':'chessgames.com'}</a></small></div>
+  <div class="card msg" id="st"></div><div class="row" id="ctl"></div><div class="card" id="ml" style="font-family:monospace;font-size:17px;line-height:1.7"></div></div></div>`;
+  const B=new Board($('#bw'),F.loser);
+  const ml=()=>{let h='';L.forEach((m,i)=>{if(i%2===0)h+=`${i/2+1}. `;const bad=i===F.bad;h+=`<span data-k="${i+1}" style="cursor:pointer;${bad?'color:#fff;background:#d6234a;border-radius:4px;padding:0 3px;font-weight:bold;':''}${i===k-1&&!bad?'background:#ffe14d;border-radius:4px;padding:0 2px;':''}${i>=k?'opacity:.3;':''}${i===k-1&&bad?'outline:3px solid #ffe14d;':''}">${m.san}${bad?'??':''}</span> `});$('#ml').innerHTML=h;$('#ml').querySelectorAll('[data-k]').forEach(x=>x.onclick=()=>{k=+x.dataset.k;showBetter=false;show()})};
+  const show=()=>{const c=new Chess();for(let i=0;i<k;i++)c.move(F.moves[i]);const m=L[k-1];let t,arrows=[],marks={};
+    if(showBetter){const b=new Chess(L[F.bad].before);const bm=b.move(F.better);B.render(b,{arrows:[[bm.from,bm.to,'#2fb36b'],[L[F.bad].from,L[F.bad].to,'#d6234a']],marks:{[bm.to]:'mark'}});
+      t=`✅ Better was ${bm.san} (green arrow) instead of ${L[F.bad].san} (red arrow). The computer (Stockfish) checked it: after ${bm.san}, ${sideName(F.loser)} ${evalWords(F.check.afterBetter)}. After ${L[F.bad].san}, ${sideName(F.loser)} ${evalWords(F.check.afterBad)}.`;
+      $('#st').innerHTML=esc(t);speak(t);ml();$('#ctl').innerHTML=`<button class="alt" id="bk">⬅ Back to the game</button>`;$('#bk').onclick=()=>{showBetter=false;show()};return}
+    if(m){arrows=[[m.from,m.to,k-1===F.bad?'#d6234a':undefined]];if(k-1===F.bad){marks[m.to]='danger'}}
+    if(k===0)t=`${sideName(F.loser)} is going to lose quickly. Tap Next and watch for the red BAD move!`;
+    else if(k-1===F.bad)t=`🚨 BAD MOVE! ${Math.ceil(k/2)}${k%2?'.':'...'} ${m.san}?? ${F.why}`;
+    else if(k-2===F.bad)t=`💥 ${sideName(winner)} punishes it: ${F.punish}`;
+    else if(k===L.length)t=`${c.isCheckmate()?'Checkmate! ':''}That is how fast one bad move can lose. Tap "Show the better move" to see what ${sideName(F.loser)} should have played.`;
+    else t=`${Math.ceil(k/2)}${k%2?'.':'...'} ${m.san}${k<F.bad+1?'':''}`;
+    B.render(c,{last:m?[m.from,m.to]:null,arrows,marks});$('#st').innerHTML=(k-1===F.bad?'<b style="color:#d6234a">':'<span>')+esc(t)+(k-1===F.bad?'</b>':'</span>');speak(t);ml();
+    $('#ctl').innerHTML=`<button class="alt" id="st0" ${k===0?'disabled':''}>⏮</button><button class="alt" id="pv" ${k===0?'disabled':''}>⬅ Back</button><button id="nx" ${k>=L.length?'disabled':''}>Next ➡</button><button class="alt" id="bad">🚨 Jump to bad move</button>${k>F.bad?`<button class="green" id="bt">✅ Show the better move</button>`:''}`;
+    $('#st0').onclick=()=>{k=0;show()};$('#pv').onclick=()=>{k--;show()};$('#nx').onclick=()=>{k++;show()};$('#bad').onclick=()=>{k=F.bad+1;show()};
+    if($('#bt'))$('#bt').onclick=()=>{showBetter=true;S.fast[F.id]=true;save();if(FAST.every(f=>S.fast[f.id]))badge('trapSpotter');show()}};
+  show()};
+SCREENS.patterns=()=>{S.patternsSeen=true;save();
+  const seenAll=Object.keys(PATTERNS).every(p=>FAST.filter(f=>f.pattern.includes(p)).every(f=>S.fast[f.id]));if(seenAll)badge('patternPro');
+  app.innerHTML=`<div class="top">${back('fastwins')}<h2>🧠 Pattern Guide</h2>${speakBtn(Object.values(PATTERNS).map(p=>p[1]+'. '+p[2]).join(' '))}</div><div class="card msg">These are the <b>patterns of bad moves</b> that lose quickly. Learn every game in a pattern to become a <b>Pattern Pro</b>!</div>
+  ${Object.entries(PATTERNS).map(([k,[e,n,t]])=>{const fs=FAST.filter(f=>f.pattern.includes(k));return `<div class="card"><h2 style="font-size:20px">${e} ${esc(n)}</h2><div class="msg">${esc(t)}</div>${fs.map(f=>`<div class="pz" data-f="${f.id}"><div><b>${esc(f.name)}</b><br><small>Bad move: ${Math.floor(f.bad/2)+1}${f.bad%2?'...':'.'}${esc(f.moves[f.bad])}?? · Better: ${esc(f.better)}</small></div><span class="stars">${S.fast[f.id]?'✅':''}</span></div>`).join('')}</div>`}).join('')}`;
+  app.querySelectorAll('[data-f]').forEach(t=>t.onclick=()=>go('fastwin',t.dataset.f))};
+SCREENS.blunders=()=>{// Spot the blunder: alternate "punish it" (position after the bad move) and "stay safe" (position before it)
+  const order=[...FAST].sort(()=>Math.random()-.5).slice(0,8);const Q=order.map((f,i)=>({f,mode:i%2?'safe':'punish'}));let n=0,right=0,sel=null,tries=0,ch,B;
+  app.innerHTML=`<div class="top">${back('fastwins')}<h2>🔎 Spot the Blunder</h2></div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side"><div class="card msg" id="st"></div><div class="row" id="ctl"></div><div class="card msg" id="sc"></div></div></div>`;
+  const ask=()=>{if(n>=Q.length){const w=`You got ${right} out of ${Q.length}!`;S.blunder.best=Math.max(S.blunder.best||0,right);save();if(right>=6)badge('blunderBuster');if(right>=6){confetti();beep('win')}$('#st').textContent=`🎉 ${w} ${right>=6?'You are a Blunder Buster!':'Get 6 or more to earn the Blunder Buster badge.'}`;speak($('#st').textContent);$('#ctl').innerHTML='<button class="green" id="ag">Play again</button><button class="alt" data-go="fastwins">Back to Fast Wins</button>';$('#ag').onclick=()=>go('blunders');return}
+    const {f,mode}=Q[n];ch=new Chess(mode==='punish'?f.quiz.punishFen:f.quiz.safeFen);tries=0;sel=null;const bad=f.uci[f.bad];B=B||new Board($('#bw'),ch.turn());B.orient=ch.turn();
+    const t=mode==='punish'?`${sideName(f.loser)} just played a BAD move (red arrow): ${f.moves[f.bad]}. You are ${sideName(ch.turn())}. Find the move that punishes it!`:`You are ${sideName(ch.turn())}. Careful: one tempting move here loses fast. Find a SAFE good move!`;
+    $('#st').textContent=t;speak(t);$('#sc').textContent=`Question ${n+1} of ${Q.length} · ✅ ${right}`;$('#ctl').innerHTML=`<button class="orange" id="hn">💡 Hint</button>`;draw();
+    $('#hn').onclick=()=>{tries=2;const u=mode==='punish'?f.uci[f.bad+1]:new Chess(f.quiz.safeFen).move(f.better).from+'';B.render(ch,{marks:{[u.slice(0,2)]:'hintp'},arrows:arrowsFor()})}};
+  const arrowsFor=()=>{const {f,mode}=Q[n];const u=f.uci[f.bad];return mode==='punish'?[[u.slice(0,2),u.slice(2,4),'#d6234a']]:[]};
+  const draw=()=>B.render(ch,{sel,hl:sel?legalHL(ch,sel):{},arrows:arrowsFor()});window.__fwAnswer=()=>{if(n>=Q.length)return null;const {f,mode}=Q[n];return (mode==='punish'?f.quiz.punishOK:f.quiz.safeOK)[0]};
+  const reveal=(ok,mv,m)=>{const {f,mode}=Q[n];if(ok)right++;n++;if(m){ch.move(m.san);B.render(ch,{last:[m.from,m.to],arrows:[[m.from,m.to,ok?'#2fb36b':'#d6234a']]})}$('#sc').textContent=`Question ${n} of ${Q.length} · ✅ ${right}`;const ans=mode==='punish'?f.moves[f.bad+1]:f.better;
+    const t=(ok?`✅ Yes! ${mv} works. `:`Not quite. `)+(mode==='punish'?`In the ${f.note&&/composition/.test(f.note)?'made-up (composed) game':f.group==='game'?'real game':'trap line'}: ${f.punish}`:`The bad move was ${f.moves[f.bad]}?? ${f.why} A good move is ${ans}.`);
+    $('#st').textContent=t;speak(t);beep(ok?'good':'bad');$('#ctl').innerHTML=`<button class="green" id="nq">Next ➡</button><button class="alt" id="ss">See the whole game</button>`;$('#nq').onclick=ask;$('#ss').onclick=()=>go('fastwin',f.id)};
+  setTimeout(()=>{B=new Board($('#bw'),'w');ask();B.onTap=sq=>{if(!ch)return;const pc=ch.get(sq);
+    if(sel&&legalHL(ch,sel)[sq]){const m=ch.moves({square:sel,verbose:true}).find(x=>x.to===sq&&(!x.promotion||x.promotion==='q'));sel=null;const u=m.from+m.to+(m.promotion||'');const {f,mode}=Q[n];
+      const okList=mode==='punish'?f.quiz.punishOK:f.quiz.safeOK;const isBad=mode==='safe'&&u===f.uci[f.bad];
+      if(okList.includes(u)){reveal(tries===0,m.san,m)}else{tries++;const t=isBad?`🚨 That is the bad move! ${f.why}`:`${m.san} is not the best idea here. Try again!`;$('#st').textContent=t;speak(t);beep('bad');if(tries>=3)reveal(false,m.san);else draw()}return}
+    sel=pc&&pc.color===ch.turn()?sq:null;draw()}},0)};
+
 // boot
-const h=location.hash.slice(1);go(['learn','puzzles','play','coach','path','badges','parents','notation','openings'].includes(h)?h:'home');
+const h=location.hash.slice(1);go(['learn','puzzles','play','coach','path','badges','parents','notation','openings','fastwins','blunders','patterns'].includes(h)?h:'home');
 window.__cq=Object.assign(window.__cq||{},{S,PUZZLES,LESSONS,analyze,fen:()=>window.__cq.game&&window.__cq.game.fen()});

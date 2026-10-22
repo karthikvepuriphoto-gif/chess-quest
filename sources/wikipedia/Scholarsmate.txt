@@ -1,0 +1,177 @@
+Scholar's mate
+{{short description|Checkmate position}}
+{{Chess diagram
+|floatright
+|
+|rd|  |bd|qd|kd|bd|  |rd
+|pd|pd|pd|pd|  |ql|pd|pd
+|  |  |nd|  |  |nd|  |  
+|  |  |  |  |pd|  |  |  
+|  |  |bl|  |pl|  |  |  
+|  |  |  |  |  |  |  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|  |kl|  |nl|rl
+|Scholar's mate – Black is checkmated.
+}}
+In [[chess]], '''scholar's mate''' is the [[checkmate]] achieved by the following moves, or similar:
+
+# [[b:Chess Opening Theory/1. e4|e4]] [[b:Chess Opening Theory/1. e4/1...e5|e5]] 
+# [[b:Chess Opening Theory/1. e4/1...e5/2. Qh5|Qh5]] [[b:Chess Opening Theory/1. e4/1...e5/2. Qh5/2...Nc6|Nc6]] 
+# [[b:Chess Opening Theory/1. e4/1...e5/2. Qh5/2...Nc6/3. Bc4|Bc4]] [[b:Chess Opening Theory/1. e4/1...e5/2. Qh5/2...Nc6/3. Bc4/3...Nf6|Nf6]]{{chesspunc|??}} 
+# [[b:Chess Opening Theory/1. e4/1...e5/2. Qh5/2...Nc6/3. Bc4/3...Nf6/4. Qxf7|Qxf7]]{{chessAN|#}}
+
+The same mating pattern may be reached by various move orders. For example, White might play [[Bishop's Opening|2.Bc4]]. In all variations, the basic idea is the same: the queen and bishop combine in a simple {{chessgloss|mating attack}}, occurring on f7 for [[White and Black in chess|White]] or on f2 for Black.
+
+Scholar's mate is sometimes referred to as the '''four-move checkmate''', although there are other ways for checkmate to occur in four moves. It is used almost exclusively by beginners. Defending against it is very simple, and if it is parried, the attacker's position usually worsens.
+{{AN chess|pos=toc}}
+
+==History==
+Scholar's mate was named and described in ''The Royall Game of Chesse-Play'', a 1656 text by [[Francis Beale (writer)|Francis Beale]] which adapted the work of the early chess writer [[Gioachino Greco]].<ref>{{cite book |url=https://babel.hathitrust.org/cgi/pt?id=njp.32101075891802&view=2up&seq=15|last=Beale |first=Francis |title=The Royall Game of Chesse-Play |series=Trattato del nobilissimo giuoco degli scacchi. English |location=London |date=1656 }} p. 17, .pdf p. 49.</ref> The example given above is an adaptation of that reported by Beale.
+
+{{quote|''The Schollers Mate.''<br />
+White kings pawne one house.<br />
+Black kings pawne the same.<br />
+White Queen to the contrary kings Rookes fourth house<br />
+Black Queens knight to her Bishops third house<br />
+White kings Bishop to the queens Bishops fourth house<br />
+Black kings knight to the kings Bishops third house<br />
+White queen takes the contrary kings Bishops pawne gives mate.
+|title=Beale, ''The Royall Game of Chesse-Play''<ref>Beale 1656, p. 17 (.pdf p. 49).</ref>}}
+
+All of the details are coherent from the modern perspective except for the first moves by each player—if Black's pawn advances only one square, this prevents White's bishop from supporting the white queen to give mate.  Beale's text was an early modern account of the [[Rules of chess|rules]] and [[Chess tactic|tactics]] of chess, including concepts such as [[Pawn (chess)#Placement and movement|the ability of a pawn to advance two squares on its first move]], the ''[[en passant]]'' capture, {{chessgloss|forks}}, and [[Exchange (chess)|exchanges]].<ref>Beale 1656, pp. 1–17 (.pdf pp. 33–49).</ref>  However, the document treated a then-exotic subject during the early days of [[printing]]; consequently the publisher attached a list of errata at the back, following publication.<ref>Beale 1656, pp. 121–122 (.pdf pp. 161–162).</ref>  Thus, the text "one houſe" describing the first move (advancing one square) may have been a mistake.
+
+According to an article published in the July 1879 issue of the ''[[Belgravia (magazine)|Belgravia]]'', the "mechanical chess-player" [[Mephisto (automaton)|Mephisto]] mated an opponent after six or seven moves:{{sfn|Proctor|1879|pages=88−89}}
+
+{{quote|text=(...) A few weeks ago he gave the form of mate known as the scholar's mate to a player who inadvertently left the mate open. (It was not given, of course, in the usual way which everyone knows; but still mate came at the sixth or seventh move.) On this Mephisto took his opponent's king from the board and tapped said opponent's nose with the piece, which to say the least did not imply respect for his opponent's powers.}}
+
+{{Chess diagram small  
+| floatright
+| Ganguly vs. Madaminov, 2023
+|rd||bd||kd||nd|rd
+|pd|pd|pd|pd||pd|pd|pd
+|  |  |  |  |  |  |  |
+|  |  | bd |  |nl  |  |  |
+|  |  |  |  | pl |  |  |
+|  |  | pl | bl |  |  |  |
+|pl|pl||||qd|pl|pl
+|rl|nl|bl|ql|kl|||rl
+| Final position
+}}
+During the eighth round of the [[World Rapid Chess Championship 2023]], [[Surya Shekhar Ganguly]] as White was checkmated in 8 moves by [[Mukhiddin Madaminov]] in a [[Scotch Game]] that ended in a scholar's mate pattern.<ref>{{cite web |url=https://www.chessgames.com/perl/chessgame?gid=2631429 |title=Surya Shekhar Ganguly vs. Mukhiddin Madaminov |date=December 27, 2023 }}</ref><ref>{{cite web |url=https://chess24.com/en/watch/live-tournaments/world-rapid-championship-2023/8/1/47 |title=Ganguly, Surya Shekhar – Madaminov, Mukhiddin |date=December 27, 2023 }}{{Dead link|date=March 2026 |bot=InternetArchiveBot }}</ref>
+
+{{block indent|1=[[Scotch Game]] (''ECO'' C45)<br/>'''1. e4 e5 2. Nf3 Nc6 3. d4 exd4 4. Nxd4 Qf6 5. Nf3 Bb4+ 6. c3 Bc5 7. Bd3 Ne5 8. Nxe5 Qxf2{{chessAN|#}} {{chessAN|0–1}}'''}}
+
+==Prevention==
+Unlike [[fool's mate]], which rarely occurs at any level, games ending in scholar's mate are quite common among beginners. It is not difficult to parry, however.
+
+===On move 1===
+After 1.e4, Black can play a [[Semi-Open Game|semi-open defense]] instead of [[Open Game|1...e5]]. Openings such as the [[French Defense]] (1...e6) or the [[Scandinavian Defense]] (1...d5) render the scholar's mate unviable, while other openings such as the [[Sicilian Defense]] (1...c5) make 2.Bc4 a bad move (1.e4 c5 2.Bc4{{chesspunc|?}} e6, intending ...d5, gaining {{chessgloss|time}} by attacking the c4-bishop and attaining easy {{chessgloss|equality}}).
+
+===On moves 2 and 3===
+Black's defense depends on whether White goes for 2.Qh5 (the [[Danvers Opening]]) or 2.Bc4 (the [[Bishop's Opening]]).
+
+====After 2.Qh5====
+{{Chess diagram  
+|floatright
+|
+|rd|  |bd|qd|kd|bd|  |rd
+|pd|pd|pd|pd|  |pd|  |pd
+|  |  |nd|  |  |nd|pd|  
+|  |  |  |  |pd|  |  |  
+|  |  |bl|  |pl|  |  |  
+|  |  |  |  |  |ql|  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|  |kl|  |nl|rl
+| After 1.e4 e5 2.Qh5 Nc6 3.Bc4 g6 4.Qf3 Nf6, Black has successfully defended against the scholar's mate.
+}}
+White does not threaten Qxf7# yet, but does threaten Qxe5+. The cleanest way to defend against this is 2...Nc6, developing a knight and protecting the pawn. (2...d6 is also good.) After 3.Bc4, Black can stop the mate with 3...g6; White can threaten mate again with 4.Qf3, but this can be stopped with 4...Nf6. Black can later [[fianchetto]] the f8-bishop (...Bg7).
+{{clear}}
+
+====After 2.Bc4====
+{{Chess diagram  
+|floatright
+|
+|rd|  |bd|  |kd|  |nd|rd
+|pd|pd|pd|pd|qd|pd|  |pd
+|  |  |nd|  |  |  |pd|
+|  |  |bd|  |pd|  |nl|ql
+|  |  |bl|  |pl|  |  |  
+|  |  |  |  |  |  |  |  
+|pl|pl|pl|pl|  |pl|pl|pl
+|rl|nl|bl|  |kl|  |  |rl
+|Position after 1.e4 e5 2.Bc4 Bc5 3.Qh5 Qe7 4.Nf3 Nc6 5.Ng5 g6. Black has successfully defended against the scholar's mate.
+}}
+The most popular response to 2.Bc4 is 2...Nf6, the [[Bishop's Opening#Berlin Defense|Berlin Defense]], which immediately renders the scholar's mate non-viable.
+
+In the continuation 2...Bc5 (the Classical Defense) 3.Qh5, Black can defend against both scholar's mate and the threatened 4.Qxe5+ with 3...Qe7, intending to gain a tempo later with 4...Nf6. The further continuation 4.Nf3 (threatening Nxe5) Nc6 5.Ng5 g6 ({{em|diagram}}) 6.Qf3? Qxg5 7.Qxf7+ Kd8 leaves White with no checkmate and no good way to defend against both ...Nd4, threatening the c2-pawn, and ...Qf6, exchanging queens.
+{{clear}}
+
+==In other openings==
+Although a quick mate on f7 is almost never seen in play above beginner level, the basic idea underlying it—that f7 and f2, squares defended only by the kings, are weak and therefore good targets for early attack—is the motivating principle behind a number of [[chess opening]]s.<ref>{{cite book |last=Kállai |first=Gábor |author-link=Gábor Kállai |year=1997 |title=Basic Chess Openings |publisher=Everyman Chess |isbn=978-1-85744-113-0 |page=7}}</ref> 
+
+*After 1.e4 e5 2.Nf3 Nc6 3.Bc4 Nf6 (the [[Two Knights Defense]]), White's most popular continuation is 4.Ng5, attacking f7, which is awkward for Black to defend. The [[Fried Liver Attack]] even involves a [[sacrifice (chess)|sacrifice]] of the knight on f7. 
+*In the [[Vienna Game, Frankenstein–Dracula Variation|Frankenstein–Dracula Variation of the Vienna Game]] (1.e4 e5 2.Nc3 Nf6 3.Bc4 Nxe4), threatening checkmate with 4.Qh5 is the only way for White to play for an advantage.
+*The [[Modern Defense, Monkey's Bum]] variation involves White threatening a scholar's mate with an early Qf3.
+
+==Other names==
+Among English speakers, the scholar's mate is also known as ''schoolboy's mate'' (which in modern English perhaps better connotes the sense of "novice" intended by the word ''scholar's'') and ''Blitzkrieg'' (German for "lightning war", meaning a quick victory).<ref>{{harv|Kidder|1960}}</ref>
+
+The names of the scholar's mate in other languages are as follows:
+* in Basque, Catalan, Czech, Dutch, Estonian, Esperanto, French, German, Portuguese, Slovak, Spanish, Turkish: ''shepherd's mate''
+* in Czech, Croatian, Danish, German, Hebrew, Hungarian, Polish, Serbian, Slovak, Slovenian: ''shoemaker's mate''
+* in Belarusian, Latvian, Lithuanian, Russian, Ukrainian: ''children's mate''
+* in Bosnian, Danish, Finnish, Macedonian, Norwegian, Serbian, Swedish: ''school mate''
+* in Arabic, Greek, Persian: ''Napoleon's mate'' (''plan'', ''trap'', ''move'')
+* in Italian: ''barber's mate''
+
+==See also==
+*[[Checkmate pattern]]
+*[[Fool's mate]]
+*[[List of chess traps]]
+
+==Notes==
+{{Reflist}}
+
+==References==
+*{{cite book
+ |last1=Hooper 
+ |first1=David  
+ |authorlink1=David Vincent Hooper
+ |last2=Whyld 
+ |first2=Kenneth 
+ |authorlink2=Kenneth Whyld
+ |title=[[The Oxford Companion to Chess]]
+ |publisher=[[Oxford University Press]]
+ |year=1996
+ |edition=2nd
+ |origyear=First pub. 1992
+ |contribution=scholar's mate
+ |pages=358–359
+ |isbn=0-19-280049-3 }}
+*{{cite book
+ |last=Kidder
+ |first=Harvey
+ |year=1960
+ |title=Illustrated Chess for Children
+ |publisher=[[Doubleday (publisher)|Doubleday]]
+ |isbn=0-385-05764-4
+ }}
+*{{cite magazine |last1=Proctor |first1=Richard A. |title=Mechanical Chess Players |journal=[[Belgravia (magazine)|Belgravia]] |date=July–October 1879 |volume=39 |pages=71–90 |url=https://books.google.com/books?id=NH9JAAAAMAAJ |access-date=8 October 2025 |publisher=Chatto and Windus |location=Piccadilly, London |language=en |via=Google Books}}
+*{{cite book
+ |last=Sunnucks 
+ |first=Anne
+ |author-link=Anne Sunnucks
+ |year=1970 
+ |title=The Encyclopaedia of Chess
+ |edition=2nd
+ |contribution=Scholar's Mate
+ |publisher=[[St. Martin's Press]]
+ |isbn=978-0-7091-4697-1}}
+ 
+==Further reading==
+{{wikibooks|Chess Opening Theory|1._e4/1...e5/2._Bc4/2...Bc5/3._Qh5/3...Nc6/4._Qxf7|Scholar's mate}}
+
+{{Chess|sp=us}}
+
+[[Category:Chess checkmates]]
+[[Category:Chess terminology]]

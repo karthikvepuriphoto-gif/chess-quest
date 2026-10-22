@@ -1,0 +1,16 @@
+[Event "Simul, 35b"]
+[Site "Banja Luka YUG"]
+[Date "1931.01.10"]
+[EventDate "?"]
+[Round "?"]
+[Result "1-0"]
+[White "Alexander Alekhine"]
+[Black "Milorad Vasic Miles"]
+[ECO "C15"]
+[WhiteElo "?"]
+[BlackElo "?"]
+[PlyCount "21"]
+
+1. e4 e6 2. d4 d5 3. Nc3 Bb4 4. Bd3 Bxc3+ 5. bxc3 h6 6. Ba3
+Nd7 7. Qe2 dxe4 8. Bxe4 Ngf6 9. Bd3 b6 10. Qxe6+ fxe6 11. Bg6#
+1-0
