@@ -1,0 +1,17 @@
+[Event "Odds game"]
+[Site "Paris FRA"]
+[Date "1750.??.??"]
+[EventDate "?"]
+[Round "?"]
+[Result "1-0"]
+[White "Kermur Sire De Legal"]
+[Black "Saint Brie"]
+[ECO "C41"]
+[WhiteElo "?"]
+[BlackElo "?"]
+[PlyCount "13"]
+[Source "A Selection of Games at Chess, George Walker, London 1835, p91"]
+[SetUp "1"]
+[FEN "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/1NBQKBNR w Kkq - 0 1"]
+
+1.e4 e5 2.Bc4 d6 3.Nf3 Nc6 4.Nc3 Bg4 5.Nxe5 Bxd1 6.Bxf7+ Ke7 7.Nd5# 1-0

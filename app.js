@@ -1,4 +1,5 @@
 import { Chess } from './lib/chess.js';
+window.__cq=window.__cq||{};
 import { PUZZLES } from './puzzles.js';
 import { pieceSVG } from './pieces.js';
 import { analyze, warm } from './engine.js';
@@ -183,7 +184,7 @@ SCREENS.play=()=>{app.innerHTML=`<div class="top">${back()}<h2>🤖 Play the Com
 async function engineMove(ch,lvKey){const L=LEVELS[lvKey];const moves=ch.moves({verbose:true});
   if(Math.random()<L.rand){return moves[Math.floor(Math.random()*moves.length)]}
   const r=await analyze(ch.fen(),{depth:L.depth,skill:L.skill});const u=r.best;return moves.find(m=>m.from+m.to+(m.promotion||'')===u)||moves[0]}
-SCREENS.game=(lvKey,me,coachOnly)=>{const ch=new Chess();let sel=null,last=null,busy=false,over=false,coach=null,hintA=null,threatMarks={};const evals=[];const keyMoments=[];let alive=true;screenCleanup=()=>{alive=false};
+SCREENS.game=(lvKey,me,coachOnly)=>{const ch=new Chess();window.__cq.game=ch;let sel=null,last=null,busy=false,over=false,coach=null,hintA=null,threatMarks={};const evals=[];const keyMoments=[];let alive=true;screenCleanup=()=>{alive=false};
   app.innerHTML=`<div class="top">${back(coachOnly?'home':'play')}<h2>${coachOnly?'🦉 Move Coach':LEVELS[lvKey].n+' bot'}</h2></div><div class="layout"><div class="boardwrap" id="bw"></div><div class="side">
   <div class="card msg" id="st"></div><div class="card" id="th" style="display:none"></div>
   <div class="row"><button class="orange" id="hint">💡 Hint</button><button class="alt" id="undo">↶ Take back</button><button class="alt" id="new">New game</button></div>
@@ -245,4 +246,4 @@ SCREENS.parents=()=>{const T=(k,l)=>`<label class="toggle"><input type="checkbox
   $('#rs').onclick=()=>{if(confirm('Erase all stars, badges and progress?')){localStorage.removeItem(KEY);location.reload()}}};
 // boot
 const h=location.hash.slice(1);go(['learn','puzzles','play','coach','path','badges','parents'].includes(h)?h:'home');
-window.__cq={S,PUZZLES,LESSONS,analyze};
+window.__cq=Object.assign(window.__cq||{},{S,PUZZLES,LESSONS,analyze,fen:()=>window.__cq.game&&window.__cq.game.fen()});
